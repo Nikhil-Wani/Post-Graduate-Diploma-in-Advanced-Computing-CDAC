@@ -1,0 +1,35 @@
+select CONCAT(CONCAT(ename,' is a '),job) "concatenation"from emp where ename='SMITH';
+
+select ename||'-'||job from emp;
+
+select INITCAP('THE students are sincere') from dual;
+
+select ename,LOWER(ename) from emp;
+
+select UPPER('oracle') "Upper" from dual;
+
+select LENGTH('Database') "Length of string" from dual;
+
+select ename,LPAD(ename,11,'*') from emp;
+
+select ename,RPAD(ename,11,'*') from emp;
+
+select LTRIM('xyxXYXLast  Word','xy') Example from dual;
+
+select RTRIM('The title of the book is **-The ghost**-*','*-') Example from dual;
+
+select SUBSTR('Database Technologies',5,4) from dual;
+
+select SUBSTR('Database Technologies',5) from dual;
+
+select SUBSTR('Database Technologies',-5) from dual;
+
+SELECT INSTR('CORPORATE FLOOR','OR', 3, 2) "Instring" from dual;
+
+SELECT INSTR('CORPORATE FLOOR','OR', -10, 1) "Instring" from dual;
+
+select REPLACE('JACK AND JUE','J','BL') "Changes" from dual;
+
+select TRANSLATE('CDAC','ABCD','1234') from dual;
+
+

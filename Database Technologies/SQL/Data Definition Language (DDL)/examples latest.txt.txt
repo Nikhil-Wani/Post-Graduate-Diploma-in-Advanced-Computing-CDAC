@@ -1,0 +1,118 @@
+Data Definition Language (DDL) commands 
+create , alter, drop, rename, truncate
+--------------------------------------------
+create table client_master (
+client_id   varchar2(6),
+client_name varchar2(20),
+client_addr varchar2(30),
+remarks     varchar2(50));
+
+create table product_master (
+product_id  varchar2(6) not null,
+product_desc varchar2(10) not null,
+unit_measure varchar2(8) not null,
+qty_onhand number(8) not null,
+unit_price number(8,2) not null,
+remarks    varchar2(30),
+constraint prod_mast_prod_id_uniq unique(product_id));
+
+
+create table product_master (
+product_id  varchar2(6) ,
+product_desc varchar2(10) not null,
+unit_measure varchar2(8) not null,
+qty_onhand number(8) not null,
+unit_price number(8,2) not null,
+remarks    varchar2(30),
+constraint prod_mast_prod_id_pk primary key(product_id));
+
+
+create table sales_order(
+order_no varchar2(6),
+client_id varchar2(6) not null,
+order_date date not null,
+del_date date not null,
+constraint sales_ordno_PK primary key(order_no));
+
+
+create table sales_order_details(
+order_no varchar2(6),
+product_id varchar2(6),
+qty_ordered number(8) not null,
+product_rate number(8,2) not null,
+constraint sales_order_prod_PK Primary key(order_no,product_id),
+constraint sales_order_orderno_FK foreign key(order_no) references sales_order(order_no),
+constraint sales_order_prodid_fk foreign key(product_id) references product_master(product_id),
+constraint chk_qty check (qty_ordered >=1));
+
+
+create table departments_dac (
+dept_no number(2) constraint dept_dac_deptno_PK primary key,
+dept_name varchar2(20));
+
+
+create table students(
+stud_no number(5),
+stud_name varchar2(20),
+dept_no number(2));
+
+
+create table subjects(
+sub_no number(5) NOT Null,
+sub_name varchar2(15),
+dept_no number(2),
+pass number(2) default 50,
+attempts number(2) check (attempts>0 and attempts<=2),
+CONSTRAINT sub_subno_PK Primary key(sub_no),
+CONSTRAINT sub_deptno_FK Foreign key(dept_no) references departments_dac on delete cascade);
+
+
+alter table students add constraint stud_studno_pk primary key(stud_no);
+
+alter table students drop constraint  stud_studno_pk;
+
+alter table departments_dac add (location varchar2(10));
+
+alter table departments_dac modify (location varchar2(20));
+
+alter table departments_dac drop column location;
+
+alter table student rename column studname to stud_name;
+
+drop table students purge;
+
+truncate table students;
+
+rename students to dac_students;
+-------------------------------------------------------------------------------
+
+Data Manipulation Language (DML) Commands
+(select, insert,update,delete)
+
+insert into product_master values(
+'p101','pen','piece',1,10.0,'test data');
+
+
+insert into product_master (product_id,product_desc,qty_onhand,unit_measure,unit_price) 
+values('p102','pencil',5,'piece',5.0);
+
+
+insert into sales_order values(
+ 'ORD101','C101','25-mar-2005','30-mar-2005');
+
+
+insert into sales_order values(
+'ORD102','C102','2-apr-2005','10-apr-2005');
+
+
+insert into sales_order_details values ('ORD101','P103',100,1000);
+
+
+select * from emp;
+select * from emp where deptno = 10;
+select empno,ename,job from emp where deptno = 20;
+
+update emp set deptno = 10 where empno = 7369;
+
+delete from students where deptno = 10;
+delete from students;

@@ -1,0 +1,22 @@
+select ceil(1.3) from dual;
+
+select floor(1.3) from dual;
+
+select power(3,2) from dual;
+
+select sqrt(36.123) from dual;
+
+select round(55.556,2) from dual;
+
+select trunc(55.556,2) from dual;
+
+select min(sal),max(sal),avg(sal),sum(sal) from emp;
+
+select count(comm) from emp;
+
+select count(*) from emp;
+
+select count(distinct job),count(comm),count(*) from emp;
+
+select sal,comm,greatest(sal,nvl(comm,0)) from emp;
+

@@ -1,0 +1,31 @@
+select sysdate,ADD_MONTHS(sysdate,6) from dual
+/
+
+select NEXT_DAY(sysdate,'sunday') from dual
+/
+
+select 	sysdate,
+	LAST_DAY(sysdate) "Last",
+	LAST_DAY(sysdate)-sysdate "Days Left"
+	from dual
+/
+
+select months_between('15-nov-03','15-oct-03') from dual
+/
+
+
+SELECT HIREDATE,LAST_DAY(ADD_MONTHS(HIREDATE,6))+1 "REVIEW" FROM EMP
+/
+
+
+SELECT HIREDATE,TO_CHAR(HIREDATE,'Month,DDth "in" YYYY') from emp
+/
+
+SELECT ename,TO_CHAR(HIREDATE,'"hired on" Ddspth "of" fmMonth,YYYY "at" Hh:mi:ss') formatted from emp
+/
+
+select to_date('03/29/2005','MM/DD/YYYY') from dual
+/
+
+select to_char(to_date('29-mar-2005'),'Day') from dual
+/

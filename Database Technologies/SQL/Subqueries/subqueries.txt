@@ -1,0 +1,133 @@
+Decode example
+---------------
+
+select ename ,decode(job,'SALESMAN','SALEPERSON',job)job from emp where deptno=30
+/
+
+
+Examples of order by
+---------------------
+
+select empno,ename from emp order by ename desc,empno desc
+/
+
+select ename,deptno from emp where deptno in (10,20) order by ename
+/
+
+select ename,sal*12 "annual sal",nvl(comm,0) from emp
+where sal>nvl(comm,0) and job='SALESMAN'
+order by sal,ename
+/
+
+
+select empno,ename,deptno,sal from emp
+order by deptno asc,sal desc
+/
+
+
+Examples of group by
+-----------------------
+
+select deptno,min(sal),max(sal),trunc(avg(sal),2),sum(sal) from emp group by deptno
+/
+
+select deptno,min(sal),max(sal) from emp
+where job='CLERK'
+group by deptno
+/
+
+select deptno,count(*) from emp
+group by deptno
+having count(*)>3
+order by deptno
+/
+
+select job,avg(sal),sum(sal+nvl(comm,0)) total_rem
+from emp
+group by job
+/
+
+
+SELECT deptno, MIN(sal), MAX (sal)
+FROM emp
+GROUP BY deptno
+/
+
+
+
+Examples of subquery
+---------------------
+1) display the employee who has maximum salary
+
+select ename from emp where sal=(select max(sal) from emp)
+/
+
+
+2)Show all employees in DALLAS
+
+select ename,job from emp where deptno in
+(select deptno from dept where loc='DALLAS')
+/
+
+3)display dept that has no employees
+
+select dname from dept where deptno not in (select distinct deptno from emp)
+/
+
+4) show all employees who belong to deptment 'SALES'
+
+select ename from emp where deptno =
+(select deptno from dept where dname='SALES')
+/
+
+5)show all employees who belong to the department to which SMITH belongs to.
+
+select ename from emp where deptno =
+(select deptno from emp where ename='SMITH')
+/
+
+6) Find the most recently hired employees in each dept.
+
+select empno,ename,hiredate,deptno from emp
+where(deptno,hiredate)
+in(select deptno,max(hiredate) from emp group by deptno)
+/
+
+7) Show the employees whose salary is the maximum in their dept.
+select deptno,ename,sal
+from emp 
+where (deptno,sal) in (select deptno,max(sal) from emp group by deptno)
+order by deptno
+/
+
+
+Example of a corelated subquery
+---------------------------------
+
+1) show all employees whose salaries exceed their department average salary
+
+SELECT deptno, ename, sal 
+    FROM emp x 
+    WHERE sal > (SELECT AVG(sal) 
+          FROM emp 
+          WHERE deptno = x.deptno) 
+    ORDER BY deptno; 
+
+
+2) Show the employees whose salary is the maximum in their dept.
+
+select deptno,ename,sal
+from emp x
+where sal=(select max(sal) from emp where x.deptno=deptno)
+order by deptno
+/
+
+
+3) Show the employees who have joined before their managers
+
+select empno,ename,hiredate
+from emp x
+where hiredate<(select hiredate from emp where x.mgr=empno)
+/
+
+

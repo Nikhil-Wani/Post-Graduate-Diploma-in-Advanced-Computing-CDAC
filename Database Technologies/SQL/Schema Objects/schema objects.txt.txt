@@ -1,0 +1,62 @@
+SELECT ROWID,
+       SUBSTR(ROWID,1,6) "OBJECT",
+       SUBSTR(ROWID,7,3) "FIL",
+       SUBSTR(ROWID,10,6) "BLOCK",
+       SUBSTR(ROWID,16,3) "ROW"
+       FROM emp
+/
+
+-----------------------
+VIEW
+-----------------------
+create or replace force view sales_staff (employee_no,employee_name,department_no) as
+select empno,ename,deptno
+from emp
+where deptno=10
+with check option constraint sales_staff_cnst;
+
+
+create view emp_dept as
+select empno,ename,emp.deptno,sal,dname,loc from emp,dept
+where emp.deptno=dept.deptno
+and loc in('DALLAS','NEW YORK','BOSTON');
+
+---------------
+SEQUENCE
+----------------
+create sequence emp_seq
+increment by 1
+start with 1
+nomaxvalue
+nocycle
+cache 10
+
+
+------------------
+SYNONYM
+------------------
+create synonym emp_syn for scott.emp
+
+--------------
+INDEX
+----------------
+
+create index emp_dept on dept(dname);
+
+-----------
+CLUSTER
+---------------
+
+create cluster emp_dept(deptno number(2));
+
+create index emp_dept_indx on cluster emp_dept;
+
+create table cl_emp
+cluster emp_dept(deptno)
+as select * from emp
+/
+
+create table cl_dept
+cluster emp_dept(deptno)
+as select * from dept;
+------------------------------------

@@ -1,0 +1,15 @@
+select * from emp where job='CLERK' and deptno=20;
+
+select * from emp where job='CLERK' and (deptno=10 or deptno=20);
+
+select * from emp where not (deptno=10);
+
+select * from emp where sal between 1500 and 3000;
+
+select * from emp where deptno in(10,20);
+
+select * from emp where job not in('CLERK','MANAGER');
+
+select ename,job,deptno from emp where ename like '%TH%' or ename like '%TT%';
+
+select distinct job from emp;

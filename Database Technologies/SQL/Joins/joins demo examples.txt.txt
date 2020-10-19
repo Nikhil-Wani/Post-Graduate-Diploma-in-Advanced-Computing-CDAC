@@ -1,0 +1,118 @@
+Examples of equijoins
+--------------------------
+
+select ename,job,dept.deptno,dname
+from dept,emp
+where emp.deptno=dept.deptno
+/
+
+
+select ename,job,dept.deptno,dname
+from dept,emp
+where emp.deptno=dept.deptno and job='CLERK'
+order by dept.deptno
+/
+
+
+select ename,loc from emp,dept
+where emp.deptno=dept.deptno
+/
+
+example of non equi join
+-------------------------
+
+select ename,sal,grade
+ from emp e,salgrade s
+	where e.sal between s.losal and s.hisal
+/
+
+select ename,sal,grade
+ from emp e,salgrade s
+ where (e.sal between s.losal and s.hisal) and s.grade=3
+/
+
+
+self join
+-----------
+
+SELECT e1.ename employee,e2.ename manager
+FROM emp e1, emp e2 
+WHERE e1.mgr = e2.empno
+/
+
+Left outer join
+----------------
+
+
+select ename,job,dept.deptno,dname
+from emp,dept
+where emp.deptno=dept.deptno(+)
+order by dept.deptno
+/
+
+
+select ename,job,dept.deptno,dname
+from emp left outer join dept
+on emp.deptno=dept.deptno
+order by dept.deptno
+/
+
+select ename,job,deptno,dname
+from emp left outer join dept
+using(deptno)
+order by deptno
+/
+
+Right outer join
+------------------
+
+select ename,job,dept.deptno,dname
+from emp,dept
+where emp.deptno(+)=dept.deptno
+order by dept.deptno
+/
+
+
+select ename,job,dept.deptno,dname
+from emp right outer join dept
+on emp.deptno=dept.deptno
+order by dept.deptno
+/
+
+select ename,job,deptno,dname
+from emp right outer join dept
+using(deptno)
+order by deptno
+/
+
+
+
+full outer join
+------------------
+
+select ename,job,dept.deptno,dname
+from emp full outer join dept
+on emp.deptno=dept.deptno
+order by dept.deptno
+/
+
+
+select ename,job,deptno,dname
+from emp full outer join dept
+using(deptno)
+order by deptno
+/
+
+
+-----------------------------------------------------------------------------
+
+SELECT e1.ename employee,e1.job emp_job,e2.ename reporting,e2.job design
+FROM emp e1, emp e2
+WHERE e1.mgr = e2.empno(+)
+/
+
+
+SELECT e1.ename employee,e1.job emp_job,e2.ename reporting,e2.job design
+FROM emp e1 full outer join emp e2
+on e1.mgr = e2.empno(+)
+/
