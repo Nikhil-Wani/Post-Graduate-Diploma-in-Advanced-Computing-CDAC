@@ -1,0 +1,262 @@
+SQL> Create or Replace function func_areofcircle(radius number)
+  2  return number
+  3  as
+  4  v_result number;
+  5  pi constant number := 3.14;
+  6  Begin
+  7   v_result := pi*radius*radius;
+  8  dbms_output.put_line('Area of Circle'||' '|| v_result);
+  9  End;
+ 10  /
+
+Function created.
+
+SQL> select func_areaofcircle(6) from dual;
+select func_areaofcircle(6) from dual
+       *
+ERROR at line 1:
+ORA-00904: "FUNC_AREAOFCIRCLE": invalid identifier 
+
+
+SQL> select func_areofcircle(6) from dual;
+select func_areofcircle(6) from dual
+       *
+ERROR at line 1:
+ORA-06503: PL/SQL: Function returned without value 
+ORA-06512: at "SCOTT.FUNC_AREOFCIRCLE", line 9 
+
+
+Area of Circle 113.04                                                                               
+SQL> Create or Replace function func_areofcircle(radius number)
+  2  return number
+  3  as
+  4  v_result number;
+  5  pi constant number := 3.14;
+  6  Begin
+  7   v_result := pi*radius*radius;
+  8  dbms_output.put_line('Area of Circle'||' '|| v_result);
+  9  return v_result;
+ 10  End;
+ 11  /
+
+Function created.
+
+SQL> select func_areofcircle(5) from dual;
+
+FUNC_AREOFCIRCLE(5)                                                                                 
+-------------------                                                                                 
+               78.5                                                                                 
+
+Area of Circle 78.5                                                                                 
+SQL> Create or Replace function func_areofcircle(radius in number)
+  2  return number
+  3  as
+  4  v_result number;
+  5  pi constant number := 3.14;
+  6  Begin
+  7   v_result := pi*radius*radius;
+  8  dbms_output.put_line('Area of Circle'||' '|| v_result);
+  9  return v_result;
+ 10  End;
+ 11  /
+
+Function created.
+
+SQL> select func_areofcircle(10) from dual;
+
+FUNC_AREOFCIRCLE(10)                                                                                
+--------------------                                                                                
+                 314                                                                                
+
+Area of Circle 314                                                                                  
+SQL> Declare
+  2  v_result number;
+  3  Begin
+  4  v_result := func_areofcircle(34);
+  5  Dbms_output.put_line('Area of Circle'||' ' || v_result);
+  6  End;
+  7  /
+Area of Circle 3629.84                                                                              
+Area of Circle 3629.84                                                                              
+
+PL/SQL procedure successfully completed.
+
+SQL> Create or Replace function func_areofcircle(radius in number)
+  2  return number
+  3  as
+  4  v_result number;
+  5  pi constant number := 3.14;
+  6  Begin
+  7   v_result := pi*radius*radius;
+  8  --dbms_output.put_line('Area of Circle'||' '|| v_result);
+  9  return v_result;
+ 10  End;
+ 11  /
+
+Function created.
+
+SQL> Declare
+  2  v_result number;
+  3  Begin
+  4  v_result := func_areofcircle(34);
+  5  Dbms_output.put_line('Area of Circle'||' ' || v_result);
+  6  End;
+  7  /
+Area of Circle 3629.84                                                                              
+
+PL/SQL procedure successfully completed.
+
+SQL> create or replace procedure proc_empname(param_empno emp.empno%type)
+  2  as
+  3  v_ename varchar2(30);
+  4  Begin
+  5  select ename into v_ename from emp where empno=param_empno;
+  6  dbms_output.put_line('EmployeeName'||' '|| v_ename);
+  7  End proc_empname;
+  8  /
+
+Procedure created.
+
+SQL> exec proc_empname(7369);
+EmployeeName SMITH                                                                                  
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp where empno=7369;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+       100 RAM        MANAGER                                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20               
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30               
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30               
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20               
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30               
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30               
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10               
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20               
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10               
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30               
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20               
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30               
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20               
+      7934 MILLER     CLERK           7782 23-JAN-82       4300                    10               
+
+15 rows selected.
+
+SQL> exec proc_empname(7839);
+EmployeeName KING                                                                                   
+
+PL/SQL procedure successfully completed.
+
+SQL> execute proc_empname(7839);
+EmployeeName KING                                                                                   
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> create or replace procedure proc_empupdate(param_empno emp.empno%type)
+  2  as
+  3  Begin
+  4  update emp set ename='ABC' where empno=param_empno;
+  5  dbms_output.put_line(sql%rowcount||'Employee Record Has been Updated');
+  6  End proc_empupdate;
+  7  /
+
+Procedure created.
+
+SQL> exec proc_empupdate(7369);
+1Employee Record Has been Updated                                                                   
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp where empno=7369;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7369 ABC        CLERK           7902 17-DEC-80        800                    20               
+
+SQL> create or replace procedure proc_empupdate(param_empno emp.empno%type)
+  2  as
+  3  Begin
+  4  update emp set ename='ABC' where empno=param_empno;
+  5  dbms_output.put_line(sql%rowcount||' '||'Employee Record Has been Updated');
+  6  End proc_empupdate;
+  7  /
+
+Procedure created.
+
+SQL> exec proc_empupdate(7900);
+1 Employee Record Has been Updated                                                                  
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp where empno=7900;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7900 ABC        CLERK           7698 03-DEC-81        950                    30               
+
+SQL> create or replace procedure proc_empupdate(param_empno number)
+  2  as
+  3  Begin
+  4  update emp set ename='ABC' where empno=param_empno;
+  5  dbms_output.put_line(sql%rowcount||' '||'Employee Record Has been Updated');
+  6  End proc_empupdate;
+  7  /
+
+Procedure created.
+
+SQL> exec proc_empupdate(7934);
+1 Employee Record Has been Updated                                                                  
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp where empno=7934;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7934 ABC        CLERK           7782 23-JAN-82       4300                    10               
+
+SQL> Begin
+  2  proc_empname(7369);
+  3  End;
+  4  /
+EmployeeName ABC                                                                                    
+
+PL/SQL procedure successfully completed.
+
+SQL> create or replace procedure proc_empupdate
+  2  
+  3  (v_empno number)
+  4  as
+  5  Begin
+  6  update emp set ename='ABC' where empno=v_empno;
+  7  dbms_output.put_line(sql%rowcount||' '||'Employee
+  8  
+  9  Record Has been Updated');
+ 10  End proc_empupdate;
+ 11  /
+
+Procedure created.
+
+SQL> exec proc_empupdate(7844);
+1 Employee
+
+Record Has been Updated                                                                 
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp where empno=7844;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO               
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------               
+      7844 ABC        SALESMAN        7698 08-SEP-81       1500          0         30               
+
+SQL> spool off;
