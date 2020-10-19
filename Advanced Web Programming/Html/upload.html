@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> Select Files </title>
+ </head>
+
+ <body>
+
+ <input type="file" id="file" onchange="getfiledetails(event)"/>
+  
+ <script>
+	function getfiledetails(ev) {
+		var files = ev.target.files;
+		alert(files[0].size);
+	}
+ </script>
+
+
+ </body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <style>
+     #myCanvas {
+         border: 1px solid black;
+     }
+ </style>
+ <script>
+   var canvas, ctx;
+ 
+   function init() {
+     // This function is called after the page is loaded
+     // 1 - Get the canvas
+     canvas = document.getElementById('myCanvas');
+     // 2 - Get the context
+     ctx=canvas.getContext('2d');
+     // 3 - we can draw, try to change these values
+     ctx.translate(100, 100);
+     ctx.rotate(Math.PI/4);
+     ctx.scale(0.5, 0.5);
+     drawMonster(0, 0);
+   }
+   
+   function drawMonster(x, y) {     
+     // head
+     ctx.fillStyle='lightgreen';
+     ctx.fillRect(0,0,200,200);
+     
+     // eyes
+     ctx.fillStyle='red';
+     ctx.fillRect(35,30,20,20);
+     ctx.fillRect(140,30,20,20);
+     
+     // interior of eye
+     ctx.fillStyle='yellow';
+     ctx.fillRect(43,37,10,10);
+     ctx.fillRect(143,37,10,10);
+     
+     // Nose
+     ctx.fillStyle='black';
+     ctx.fillRect(90,70,20,80);
+     
+     // Mouth
+     ctx.fillStyle='purple';
+     ctx.fillRect(60,165,80,20);
+     
+     // coordinate system at (0, 0)
+     drawArrow(ctx, 0, 0, 100, 0, 10, 'red');
+     drawArrow(ctx, 0, 0, 0, 100, 10, 'red');
+   }
+ </script>
+ </head>
+<body onload="init();">
+    <canvas id="myCanvas" width="400" height="400">
+            Your browser does not support the canvas tag.
+    </canvas>
+</body>
+</html>
