@@ -1,0 +1,10 @@
+<!ELEMENT catalog ( product) >
+<!ELEMENT product ( catalog_item*) >
+<!ATTLIST product description CDATA #REQUIRED >
+<!ELEMENT catalog_item ( price,size+) >
+<!ATTLIST catalog_item gender CDATA #REQUIRED >
+<!ELEMENT price (#PCDATA ) >
+<!ELEMENT size (color_swatch+)>
+<!ATTLIST size description CDATA #REQUIRED >
+<!ELEMENT color_swatch (#PCDATA)>
+<!ATTLIST color_swatch image CDATA #REQUIRED >

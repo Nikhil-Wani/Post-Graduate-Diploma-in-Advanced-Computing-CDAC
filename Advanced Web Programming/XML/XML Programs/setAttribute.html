@@ -1,0 +1,28 @@
+<html>
+<body>
+<script type="text/javascript">
+
+var xmlDoc=new ActiveXObject("Microsoft.XMLDOM")
+xmlDoc.async="false"
+xmlDoc.load("books.xml")
+
+var x=xmlDoc.getElementsByTagName('book');
+var newatt;
+
+for (i=0;i<x.length;i++)
+  {
+  newatt=xmlDoc.createAttribute("edition");
+  newatt.value="first";
+  x[i].setAttributeNode(newatt);
+  }
+
+//Output all "edition" attribute values
+for (i=0;i<x.length;i++)
+  {
+  document.write("Edition: ");
+  document.write(x[i].getAttribute("edition"));
+  document.write("<br />");
+  } 
+</script>
+</body>
+</html>

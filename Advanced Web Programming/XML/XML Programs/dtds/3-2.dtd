@@ -1,0 +1,1 @@
+<!ELEMENT first_name (#PCDATA)><!ELEMENT last_name (#PCDATA)><!ELEMENT profession (#PCDATA)><!ELEMENT name (first_name, last_name)><!ELEMENT person (name, profession*)>

@@ -1,0 +1,9 @@
+<!ELEMENT message (letter)>
+	<!ELEMENT letter ( letterhead, text ) >
+	<!ATTLIST letter reply (yes|no) "no" >
+			<!ELEMENT letterhead ( sender, recipient*, date ) >
+			<!ELEMENT sender ( #PCDATA ) >
+			<!ELEMENT recipient ( #PCDATA ) >
+			<!ELEMENT date ( #PCDATA ) >
+			<!ELEMENT text ( #PCDATA | salutation)* >
+			<!ELEMENT salutation ( #PCDATA ) >

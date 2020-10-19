@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript">
+function loadXMLDoc(dname) 
+{
+var xmlDoc;
+
+xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+
+xmlDoc.async=false;
+xmlDoc.load(dname);
+return(xmlDoc);
+}
+function output()
+{
+   xmlDoc=loadXMLDoc("books.xml");
+//copy a node
+var oldNode=xmlDoc.getElementsByTagName('book')[0];
+var newNode=oldNode.cloneNode(true);
+xmlDoc.documentElement.appendChild(newNode);
+
+//Output all titles
+var y=xmlDoc.getElementsByTagName("title");
+for (i=0;i<y.length;i++)
+  {
+  document.write(y[i].childNodes[0].nodeValue);
+  document.write("<br />");
+  }
+
+}
+</script>
+</head>
+
+<body onload="output()">
+ <p><H2>Finish</H2>
+</body>
+</html>

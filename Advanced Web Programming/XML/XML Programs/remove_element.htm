@@ -1,0 +1,57 @@
+<html>
+<head>
+<script type="text/javascript"> 
+function loadXMLDoc(dname) 
+{
+var xmlDoc;
+// code for IE
+if (window.ActiveXObject)
+{
+xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+}
+// code for Mozilla, Firefox, Opera, etc.
+else if (document.implementation && document.implementation.createDocument)
+{
+xmlDoc=document.implementation.createDocument("","",null);
+}
+else
+{
+alert('Your browser cannot handle this script');
+}
+xmlDoc.async=false;
+xmlDoc.load(dname);
+return(xmlDoc);
+}
+
+</script>
+</head>
+<body>
+<script type="text/javascript">
+//check if the last node is an element node
+function get_lastchild(n)
+{
+var x=n.lastChild;
+while (x.nodeType!=1)
+  {
+  x=x.previousSibling;
+  }
+return x;
+}
+
+xmlDoc=loadXMLDoc("books.xml");
+
+document.write("Number of book nodes: ");
+document.write(xmlDoc.getElementsByTagName('book').length);
+document.write("<br />");
+
+var lastNode=get_lastchild(xmlDoc.documentElement);
+var delNode=xmlDoc.documentElement.removeChild(lastNode);
+
+document.write("Number of book nodes after removeChild(): ");
+document.write(xmlDoc.getElementsByTagName('book').length);
+
+</script>
+</body>
+</html>
+
+

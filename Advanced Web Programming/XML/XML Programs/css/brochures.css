@@ -1,0 +1,119 @@
+/* First we take care everthing is displayed with a sans-serif font-family  */
+
+
+* {
+   display: block;
+   }
+
+/* Then we work bottom done  */
+
+brochures { 
+   display: block;
+   font-family: verdana, helvetica, sans-serif;
+   font-size:10pt;
+   font-weight: normal;
+   }
+  
+/* The  padding takes care we have a margin on the left. Note the border is not padded  */
+  
+factsheet {
+   display: block;
+   border-top-style: dashed;
+   border-width: 1px;
+   margin-top: 1em;
+   padding-left: 1em;
+    
+   }
+   
+   
+category {
+   text-align: right;
+   font-style: italic;
+   background-color: red;
+   background-image: url(icons/achtergrond.jpg);
+   background-repeat:no-repeat;
+   color: white;
+   margin-bottom: 0;
+   width: 100%;
+   }
+   
+   
+title {
+   font-weight: bold;
+   font-size: 12pt;
+   margin-bottom: 1em;
+   padding-top: 0em;
+   background-image: url(icons/achtergrond.jpg);
+   min-height:35pt;
+   background-repeat: no-repeat;
+   background-color: black;
+   color: white;
+   width: 100%;
+   margin-top: 0;
+   vertical-align: center;
+   }
+   
+
+
+ background, product-spec{
+ margin-left: 5em;
+ }
+ 
+ introduction, paragraph {
+   margin-bottom: 1em;
+    }
+    
+ background paragraph:first-letter {
+    font-size: 12pt;
+    font-style: italic;
+    }
+
+unordered-list {
+   display: list;
+   }
+   
+list-item {
+   display:list-item;
+   list-style-type: disc;
+   list-style-position: inside;
+   }
+   
+ adresses{
+    display: table; 
+    }
+
+
+ address {
+    display: table-row;
+  }
+ 
+ address-line {
+    display: table-cell;
+    padding: 1em;
+    font-size: 10pt;
+    border-style:solid;
+    border-width: 1px;
+    }
+    
+ em {display: inline; 
+    font-style: italic;
+    }
+
+ a, linkto {display: inline;
+ } 
+ 
+
+ author {
+    display: none;
+    }
+    
+table-of-contents {
+    background-image: url(icons/logo-genias.jpg);
+   background-repeat: repeat-x;
+   position: fixed;
+   bottom:0;
+   left: 0;
+   margin: 0em;
+   height:87px;
+   width:320px;
+	}

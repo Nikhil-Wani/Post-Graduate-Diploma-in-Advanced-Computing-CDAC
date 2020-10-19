@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!--!DOCTYPE CUSTOMERS [
+<!ELEMENT CUSTOMERS (CUSTOMER)*>
+<!ELEMENT CUSTOMER (NAME,DATE,ORDERS)>
+<!ELEMENT NAME (FIRST_NAME,LAST_NAME)>
+<!ELEMENT FIRST_NAME (#PCDATA)>
+<!ELEMENT LAST_NAME (#PCDATA)>
+<!ELEMENT DATE (#PCDATA)>
+<!ELEMENT ORDERS (ITEMS)*>
+<!ELEMENT ITEM (PRODUCT,NUMBER,PRICE)>
+<!ELEMENT PRODUCT (#PCDATA)>
+<!ELEMENT NUMBER (#PCDATA)>
+<!ELEMENT PRICE (#PCDATA)>
+<!ATTLIST CUSTOMER
+TYPE CDATA #IMPLIED>
+]-->
+<CUSTOMERS>
+  <CUSTOMER TYPE="excellent">
+    <NAME>
+      <FIRST_NAME>
+      Smith
+      </FIRST_NAME>
+      <LAST_NAME>
+      Sam
+      </LAST_NAME>
+    </NAME>
+    <DATE>
+    May 22,2001
+    </DATE>
+    <ORDERS>
+      <ITEM>
+        <PRODUCT>Tomatoes
+          </PRODUCT>
+        <NUMBER>8
+            </NUMBER>
+        <PRICE>Rs 10.50
+            </PRICE>
+      </ITEM>
+      <ITEM>
+        <PRODUCT>Oranges
+          </PRODUCT>
+        <NUMBER>24
+            </NUMBER>
+        <PRICE>Rs 100.00
+            </PRICE>
+      </ITEM>
+    </ORDERS>
+  </CUSTOMER>
+  <CUSTOMER TYPE="lousy">
+    <NAME>
+      <FIRST_NAME>Jones
+      </FIRST_NAME>
+      <LAST_NAME>Polly
+      </LAST_NAME>
+    </NAME>
+    <DATE>May 21,2007
+    </DATE>
+    <ORDERS>
+      <ITEM>
+        <PRODUCT>Bread
+          </PRODUCT>
+        <NUMBER>12
+            </NUMBER>
+        <PRICE>Rs 150.00
+            </PRICE>
+      </ITEM>
+      <ITEM>
+        <PRODUCT>Apples
+          </PRODUCT>
+        <NUMBER>8
+            </NUMBER>
+        <PRICE>Rs 160.00
+            </PRICE>
+      </ITEM>
+    </ORDERS>
+  </CUSTOMER>
+  <CUSTOMER TYPE="good">
+    <NAME>
+      <FIRST_NAME>Weber 
+      </FIRST_NAME>
+      <LAST_NAME>Bill
+      </LAST_NAME>
+    </NAME>
+    <DATE>May 6,2007
+    </DATE>
+    <ORDERS>
+      <ITEM>
+        <PRODUCT>Asparagus
+          </PRODUCT>
+        <NUMBER>12
+            </NUMBER>
+        <PRICE>Rs 100.50
+            </PRICE>
+      </ITEM>
+      <ITEM>
+        <PRODUCT>Lettuce
+          </PRODUCT>
+        <NUMBER>12
+            </NUMBER>
+        <PRICE>Rs 200.00
+            </PRICE>
+      </ITEM>
+    </ORDERS>
+  </CUSTOMER>
+</CUSTOMERS>

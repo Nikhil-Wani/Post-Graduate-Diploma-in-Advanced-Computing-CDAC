@@ -1,0 +1,14 @@
+<!ELEMENT author ( #PCDATA ) >
+
+<!ELEMENT book ( title, author+, year, price ) >
+<!ATTLIST book category NMTOKEN #REQUIRED >
+
+<!ELEMENT bookstore ( book+ ) >
+
+<!ELEMENT price ( #PCDATA ) >
+
+<!ELEMENT title ( #PCDATA ) >
+<!ATTLIST title lang NMTOKEN #REQUIRED >
+
+<!ELEMENT year ( #PCDATA ) >
+

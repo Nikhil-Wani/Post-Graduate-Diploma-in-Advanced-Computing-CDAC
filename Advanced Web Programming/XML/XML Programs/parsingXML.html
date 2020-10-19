@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type="text/javascript">
+var xmlDoc;
+function loadXML()
+{
+
+	xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+	xmlDoc.async=false;
+	xmlDoc.load("note.xml");
+	getmessage();
+}
+alert(xmlDoc.getElementsByTagName("to")[0].childNodes[0].nodeValue)
+
+function getmessage()
+{
+document.getElementById("to").innerHTML=xmlDoc.getElementsByTagName("to")[0].childNodes[0].nodeValue;
+document.getElementById("from").innerHTML=xmlDoc.getElementsByTagName("from")[0].childNodes[0].nodeValue;
+document.getElementById("message").innerHTML=xmlDoc.getElementsByTagName("body")[0].childNodes[0].nodeValue;
+}
+</script>
+</head>
+
+<body onload="loadXML()">
+<h1>Parsing The Entire Document</h1>
+<p><b>To:</b> <span id="to"></span><br />
+<b>From:</b> <span id="from"></span><br />
+<b>Message:</b> <span id="message"></span>
+</p>
+</body>
+</html>

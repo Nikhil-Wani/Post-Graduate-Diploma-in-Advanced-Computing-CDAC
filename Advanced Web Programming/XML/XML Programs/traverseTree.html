@@ -1,0 +1,34 @@
+<html>
+<body>
+<script type="text/javascript">
+
+	xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+	xmlDoc.async=false;
+	xmlDoc.load("simple.xml");
+
+document.write("The Child nodes of the DOM Oject are"+"<BR>")
+
+for (i=0;i<xmlDoc.childNodes.length;i++)
+{
+document.write(xmlDoc.childNodes[i].nodeName);
+
+document.write(" = ");
+if(xmlDoc.childNodes[i].nodeValue!=null)
+document.write(xmlDoc.childNodes[i].nodeValue);
+else
+{
+document.write("has "+xmlDoc.childNodes[i].childNodes.length+"childs more");
+
+}
+document.write("<br />");
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

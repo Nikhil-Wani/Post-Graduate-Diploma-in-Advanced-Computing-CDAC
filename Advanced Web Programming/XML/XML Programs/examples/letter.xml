@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE message SYSTEM "message.dtd" >
+<message>
+		<!--email reply="yes">
+		<header>
+			<sender>me@ischool.utexas.edu</sender>
+			<recipient>you@ischool.utexas.edu</recipient>
+		</header>
+		<subject>Re: XML</subject>
+		<text>I'm working on my XML project right now.</text>
+	</email-->
+	<letter reply="no">
+		<letterhead>
+			<sender>Jhon</sender>
+			<recipient>Dave</recipient>
+			<date>23-06-2010</date>
+		</letterhead>	
+		<text>
+			<salutation>Are you there?</salutation>It's me Jhon...
+		</text>
+	</letter>
+
+</message>

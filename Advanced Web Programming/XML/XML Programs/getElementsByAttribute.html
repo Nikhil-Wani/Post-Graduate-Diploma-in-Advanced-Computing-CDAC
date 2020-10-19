@@ -1,0 +1,21 @@
+<html>
+<body>
+<script type="text/javascript">
+
+var xmlDoc=new ActiveXObject("Microsoft.XMLDOM")
+xmlDoc.async="false"
+xmlDoc.load("books.xml")
+
+document.write("The attributes in the XMl documents are "+"<br/>");
+
+var x=xmlDoc.getElementsByTagName('book');
+
+for (i=0;i<x.length;i++)
+  {
+  document.write(x[i].getAttribute('category'));
+  document.write("<br />");
+  }
+</script>
+</body>
+</html>
+

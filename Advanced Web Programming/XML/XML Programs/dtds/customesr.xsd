@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CUSTOMER">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NAME" />
+        <xs:element ref="DATE" />
+        <xs:element ref="ORDERS" />
+      </xs:sequence>
+      <xs:attribute name="TYPE" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CUSTOMERS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CUSTOMER" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DATE">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="FIRST_NAME">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="ITEM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PRODUCT" />
+        <xs:element ref="NUMBER" />
+        <xs:element ref="PRICE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LAST_NAME">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="NAME">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FIRST_NAME" />
+        <xs:element ref="LAST_NAME" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NUMBER">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="ORDERS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ITEM" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PRICE">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="PRODUCT">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+</xs:schema>

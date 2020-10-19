@@ -1,0 +1,20 @@
+<html>
+<body>
+<script type="text/javascript">
+
+var xmlDoc=new ActiveXObject("Microsoft.XMLDOM")
+xmlDoc.async="false"
+xmlDoc.load("books.xml")
+
+
+var x=xmlDoc.getElementsByTagName('title');
+
+for (i=0;i<x.length;i++)
+  {
+  document.write(x[i].childNodes[0].nodeValue)
+  document.write("<br />")
+  }
+</script>
+</body>
+</html>
+
