@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Namespace: http://dyomedea.com/ns/library -->
+<library xmlns:ppl="http://dyomedea.com/ns/people" 
+  xmlns="http://dyomedea.com/ns/library">
+  <book id="b0836217462">
+    <title>Being a Dog Is a Full-Time Job</title>
+    <authors>
+      <ppl:person id="CMS">
+        <ppl:name>Charles M Schulz</ppl:name>
+      </ppl:person>
+    </authors>
+  </book>
+</library>

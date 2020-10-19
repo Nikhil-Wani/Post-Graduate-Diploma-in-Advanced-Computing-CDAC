@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- $Header: /home/cvsroot/w3c-xml-schema/user/examples/instance-docs/simple-types.xsd,v 1.2 2002/01/29 12:35:46 vdv Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="tests">
+		<xs:complexType>
+			<xs:sequence>
+							<xs:element name="any" type="xs:anySimpleType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="dateISO">
+					<xs:restriction base="xs:date">
+									<xs:pattern value="[^:Z]*"/>
+					</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EnglishDate">
+					<xs:restriction base="xs:token">
+									<xs:pattern  value="(January|March|May|July|August|October|December) ([1-3]?1st|[12]?2nd|[12]?3rd|(30|[12]?[4-9])th), [0-9]{0,4}"/>
+									<xs:pattern value="February ([1-2]?1st|[12]?2nd|[12]?3rd|[12]?[4-9]th), [0-9]{0,4}"/>
+									<xs:pattern value="(April|June|September|November) ([1-2]?1st|[12]?2nd|[12]?3rd|(30|[12]?[4-9])th), [0-9]{0,4}"/>
+					</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dateFrançaise">
+					<xs:restriction base="xs:token">
+									<xs:pattern value="(1er|[1-3][01]|[12]?[2-9]) (janvier|mars|mai|juillet|août|octobre|décembre) [0-9]{0,4}"/>
+									<xs:pattern value="(1er|[12][01]|[12]?[2-9]) février [0-9]{0,4}"/>
+									<xs:pattern value="(1er|[12][01]|[12]?[2-9]|30) (avril|juin|septembre|novembre) [0-9]{0,4}"/>
+					</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="anyDate">
+					<xs:union memberTypes="dateISO EnglishDate dateFrançaise"/>
+	</xs:simpleType>
+</xs:schema>

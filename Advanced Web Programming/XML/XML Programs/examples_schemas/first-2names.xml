@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+	<book id="b0836217462" available="true">
+		<isbn>0836217462</isbn>
+		<title lang="en">Being a Dog Is a Full-Time Job</title>
+		<author id="CMS">
+			<name>
+				<first>Charles</first>
+				<middle>M.</middle>
+				<last>Schulz</last>
+			</name>
+			<born>1922-11-26</born>
+			<dead>2000-02-12</dead>
+		</author>
+		<character id="Snoopy">
+			<name>Snoopy</name>
+			<born>1950-10-04</born>
+			<qualification>extroverted beagle</qualification>
+		</character>
+	</book>
+</library>

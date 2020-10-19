@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library xmlns="http://dyomedea.com/ns/library" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <book id="b0836217462">
+    <title>Being a Dog Is a Full-Time Job</title>
+    <authors>
+      <person xlink:href="authors.xml#CMS"/>
+    </authors>
+  </book>
+</library>

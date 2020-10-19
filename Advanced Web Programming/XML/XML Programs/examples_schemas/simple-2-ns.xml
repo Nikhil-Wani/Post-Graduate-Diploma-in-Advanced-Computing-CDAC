@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library 
+ xmlns:ppl="http://dyomedea.com/ns/people" 
+ xmlns="http://dyomedea.com/ns/library" >
+  <book id="b0836217462" available="yes">
+    <isbn>0836217462</isbn>
+    <title>Being a Dog Is a Full-Time Job</title>
+    <authors>
+      <ppl:person id="CMS">
+        <ppl:name>Charles M Schulz</ppl:name>
+        <ppl:born>1922-11-26</ppl:born>
+        <ppl:dead>2000-02-12</ppl:dead>
+      </ppl:person>
+    </authors>
+    <characters>
+      <ppl:person id="PP">
+        <ppl:name>Peppermint Patty</ppl:name>
+        <ppl:born>1966-08-22</ppl:born>
+        <ppl:qualification>bold, brash and tomboyish</ppl:qualification>
+      </ppl:person>
+      <ppl:person id="Snoopy">
+        <ppl:name>Snoopy</ppl:name>
+        <ppl:born>1950-10-04</ppl:born>
+        <ppl:qualification>extroverted beagle</ppl:qualification>
+      </ppl:person>
+      <ppl:person id="Schroeder">
+        <ppl:name>Schroeder</ppl:name>
+        <ppl:born>1951-05-30</ppl:born>
+        <ppl:qualification>brought classical music to the Peanuts strip</ppl:qualification>
+      </ppl:person>
+      <ppl:person id="Lucy">
+        <ppl:name>Lucy</ppl:name>
+        <ppl:born>1952-03-03</ppl:born>
+        <ppl:qualification>bossy, crabby and selfish</ppl:qualification>
+      </ppl:person>
+    </characters>
+  </book>
+</library>

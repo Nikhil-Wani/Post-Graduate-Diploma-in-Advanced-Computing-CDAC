@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://dyomedea.com/ns/library/mkt" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="cover" type="xs:NMTOKEN"/>
+	<xs:element name="pages" type="xs:nonNegativeInteger"/>
+</xs:schema>

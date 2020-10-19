@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library xmlns="http://dyomedea.com/ns/library">
+  <book id="b0836217462">
+    <title>Being a Dog Is a Full-Time Job</title>
+    <description xml:lang="en">
+           Its title says it all !
+	</description>
+    <description xml:lang="fr">
+           Son titre le résume parfaitement !
+	</description>
+  </book>
+</library>
