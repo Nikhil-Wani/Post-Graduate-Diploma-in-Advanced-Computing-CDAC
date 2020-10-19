@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<students>
+  <student>
+    <email>smk@gmail.com</email>
+    <name>Murali</name>
+    <age>24</age>
+    <addr1>CDAC,#1 Shivbagh</addr1>
+    <addr2>Ameerpet</addr2>
+    <city>Hyderabad</city>
+    <state>Andhra Pradesh</state>
+    <pincode>530041</pincode>
+  </student>
+  <student>
+    <email>vivek@gmail.com</email>
+    <name>Vivek</name>
+    <age>23</age>
+    <addr1>daf</addr1>
+    <addr2>daff</addr2>
+    <city>Delhi</city>
+    <state>Arunachal Pradesh</state>
+    <pincode>530041</pincode>
+  </student>
+</students>

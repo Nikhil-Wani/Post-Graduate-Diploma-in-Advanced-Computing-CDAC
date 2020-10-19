@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<students>
+<id>130550320001</id>
+<name>Jani</name>
+<email>jani@gmail.com</email>
+<age>24</age>
+<addr1>CDAC</addr1>
+<addr2>Shivbagh</addr2>
+<city>Hyderabad</city>
+<state>Andhrapradesh</state>
+<pin>500016</pin>
+</students>
