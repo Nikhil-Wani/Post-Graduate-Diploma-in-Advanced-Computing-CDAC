@@ -1,0 +1,275 @@
+$lt $gt $gte $lte $in $nin $exists
+$elemMatch,$size, $type $or $and
+
+------list all movies with rating = eithr 4 or 5 or 6
+>db.movie.find({rating:4,rating:5,rating:6})
+{rating:4}
+{rating:5}
+{rating:6}
+
+db.movie.find({$or:[{rating:4},{rating:5},{rating:6}]})
+db.movie.find({rating:{$in:[4,5,6]}})
+
+---list all movies with rating other than 4,5,6,
+db.movie.find({rating:{$nin:[4,5,6]}})
+
+----- list all movies with price > 200 or rating= 4
+{price:{$gt:200}}
+{rating:4}
+db.movie.find({$or:[{price:{$gt:200}},{rating:4}]})
+
+----list all movies with price > 150 and < 300
+db.movie.find({price:{$gte:150,$lte:300}})
+
+-----list all movies with rating=5 or price >300 
+or ticket_no<300
+db.movie.find({$or:[{rating:5},{price:{$gt:300}},{ticket_no:{$lt:300}}]}).pretty()
+
+------list all documents which has rating key
+db.movie.find({rating:{$exists:true}})
+
+----list all documents inwhich rating key exists 
+and it is null
+db.movie.find({rating:{$in:[null],$exists:true}}).pretty()
+
+------list all movies in which amitabh has acted
+db.movie.find({actor:'Amitabh'})
+
+------list all movies in which amitabh exists at 
+0 th position
+db.movie.find({'actor.0':'Amithabh'})
+
+
+----list all movies with length of actor =3
+$size
+db.movie.find({actor:{$size:3}})
+
+
+
+----list 3 rd and 4 th the movies in sorted on name in ascending order
+if size of actor array is 3
+db.movie.find({actor:{$size:3}}).limit(2).skip(2).sort({name:1}).pretty()
+
+-display all keys other than prive for movie kahani
+db.movie.find({name:'kahani'},{price:0,_id:0}).pretty()
+
+---list all movies whose name starts with k
+db.movie.find({name:/^k/},{name:1,price:1}).sort({price:1})
+
+
+----list all movie in which actor has Amithabh
+db.movie.find({actor:/^[Aa]mitabh/,rating:4},{name:1,price:1,actor:1}).sort({price:1}).pretty()
+
+----list all movies whose name ends with t and price is >200
+display only name and price in ascending order of name
+{name:/t$/}
+{price :{$gt:200}}
+db.movie.find({name:/t$/,price :{$gt:200}},{name:1,price:1}).sort({name:1})
+
+----list all movies whose name ends with t or price is >200
+display only name and price in ascending order of name
+{name:/t$/}
+{price :{$gt:200}}
+db.movie.find({$or:[{name:/t$/},{price :{$gt:200}}]},{name:1,price:1}).sort({name:1})
+
+
+
+
+$elemMatch
+
+db.survey.find({results:{$elemMatch:{product:'xyz',score:7}}})
+
+-----list all movies with rating =4 or 
+price>200 and vidya balan is actor
+{rating:4}
+{price:{$gt:200}}
+{actor:'Vidya balan'}
+
+{$and:[{price:{$gt:200}},{actor:'Vidya balan'}]}
+{$or:[{rating:4},{$and:[{price:{$gt:200}},{actor:'Vidya balan'}]}]}
+$and
+$or
+
+
+db.article.find({comments.desg:'Analyst','comments.rating':3})
+db.article.find({comments:{$elemMatch:{desg:'Analyst',rating:3}}
+{id:1,subject:'health'
+comments:[
+{desg:'Analyst', rating:3,comment:"This is good article},
+{desg:'director', rating:3,comment:"This is good article},
+{desg:'Analyst', rating:2,comment:"This is okarticle}
+]
+}
+{id:2,sub:'diet'
+comments:[
+{desg:'Analyst', rating:1,comment:"This is good article},
+{desg:'director', rating:3,comment:"This is good article},
+{desg:'ceo', rating:2,comment:"This is okarticle}
+]
+}
+
+
+456.67
+300
+234
+
+db.movie.find({price:{$type:'double'}})
+
+
+-------
+insert ----will a document in mongodb
+db.emp.insert({empno:12,ename:'Kusum'},{empno:123,ename:'anil'})
+
+db.article.insert({})
+
+---createCollection
+to create capped collection
+db.createCollection('mycollection',{})
+
+capped:true 
+max:10
+size:2000
+autoIndexID:true
+
+you cannot delete document from capped collection
+
+
+----delete entire collection
+
+db.mycollection123.drop()
+
+
+------delete documents from collection
+db.mycollection.remove()
+db.mycollection.remove({rating:1})
+delete
+deleteMany
+
+
+--update data
+delete a key value pair from few doc
+overwrintg value of existing key
+increase or decrease of the value
+add a value in the existing array
+delete a value in the existing array
+
+updateOne
+update
+updateMany
+db.collection.update({query},{update action},{option})
+multi :true
+upsert:true
+
+$set  $unset $inc $min $max $currentDate
+
+$push $pop $pull $ $[]
+
+
+
+db.movie.update({name:'kahani'},{$set:{rating:5,'modified.reason':'Public demand'},
+                  $currentDate:{lastmodified:true,
+                                'modified.time':{$type:"timestamp"}}
+                  },
+                  {multi:true,upsert:true})
+
+-------Aggregate function
+filters
+$project ---- helps for retriving required keys also generate derived
+$group -   this is similar to group by statement
+			$sum:
+      $avg
+      $min
+      $max
+$match ----- will filter documents based on condition
+$unwind ------ this will unwind values of arrays
+{_id:1,author:'aaaa',
+publication:[{date:ISODate('-----')},edition:1},
+{date:ISODate('-----')},edition:2},]}
+]}
+
+{_id:1,author:'aaaa',publication:{date:ISODate('-----')},edition:1}}
+{_id:1,author:'aaaa',publication:{date:ISODate('-----')},edition:2}}
+
+$limit ---to limit no of records
+$skip ------ to skip few documents
+$sort------- to arrange data in sorted order
+
+db.movie.aggregate([{$project:{rating:1,price:2}},
+{$group:{_id:'$rating',sump:{$sum:'$price'},minp:{$min:'$price'},maxp:{$max:'$price'}}},
+{$sort:{_id:1}}
+])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
