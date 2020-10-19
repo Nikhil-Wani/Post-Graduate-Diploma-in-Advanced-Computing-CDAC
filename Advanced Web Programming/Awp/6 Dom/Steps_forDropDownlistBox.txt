@@ -1,0 +1,23 @@
+
+
+
+
+Step 1: Apply CSS to set dropdown list box, paragraph, anchor at center align
+        Set background of div with color
+	Set Font familty for Web page.
+Step 2: Trap event for dropdown list 
+	Add actionlistner/ event handler for selected event of dropdown
+step 3: Define three city arrays 
+	based on selected state; apply data binding with dropdown listbox with
+	appropriate city array.
+	
+	Use DOM manipulation , use DOM Tree travesal.
+	
+	document.getElementByID--------
+	use value property
+	use selected property 
+	javascript code
+	
+	implement all client side dom manipulation code using script block in
+	 html file
+

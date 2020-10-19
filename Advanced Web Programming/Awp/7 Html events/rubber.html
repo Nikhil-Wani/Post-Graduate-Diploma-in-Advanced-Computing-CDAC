@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        body {background-color: ivory;padding: 0px;}
+        #canvas { border: 1px solid blue;}
+    </style>   
+</head>
+<body>
+    <h4>Drag to create a line or circle </h4>
+    <canvas id="canvas" 
+        width=300 height=300>
+      
+    </canvas>
+    
+    <script type="text/javascript">
+
+    window.addEventListener("load", onLoad);
+
+    function onLoad(){
+
+        var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext("2d");
+
+        var canvasOffset=canvas.offset;
+        var offsetX=canvas.offsetLeft;
+        var offsetY=canvas.offsetTop;
+
+        var startX;
+        var startY;
+        var isDown=false;
+
+        canvas.addEventListener('mousedown',handleMouseDown);
+        canvas.addEventListener('mousemove',handleMouseMove);
+        canvas.addEventListener('mouseup',handleMouseUp);
+        canvas.addEventListener('mouseout',handleMouseOut);
+
+      
+        function handleMouseDown(e){
+          e.preventDefault();
+          e.stopPropagation();
+          startX=parseInt(e.clientX-offsetX);
+          startY=parseInt(e.clientY-offsetY);
+          isDown=true;
+        }
+
+
+
+
+
+
+        function handleMouseMove(e){
+          if(!isDown){ return; }
+          e.preventDefault();
+          e.stopPropagation();
+          mouseX=parseInt(e.clientX-offsetX);
+          mouseY=parseInt(e.clientY-offsetY);
+           
+          drawLine(mouseX,mouseY);
+         // drawRectangle(mouseX, mouseY);
+        }
+
+
+
+
+
+
+
+
+        function handleMouseUp(e){
+
+          if(!isDown){ return; }
+          e.preventDefault();
+          e.stopPropagation();
+          isDown=false;
+        }
+
+        function handleMouseOut(e){
+          if(!isDown){ return; }
+          e.preventDefault();
+          e.stopPropagation();
+          isDown=false;
+        }
+
+        
+         
+        function drawLine(x, y) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            //ctx.lineTo(startX, startY, x, startY, x, startY + (y - startY) / 2);
+            ctx.lineTo(x, y, startX, y, startX, startY + (y - startY) / 2);
+            ctx.closePath();
+            ctx.stroke();
+      }
+     
+        function drawRectangle(x, y) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            //ctx.moveTo(startX, startY);
+            //PenStyle
+            ctx.strokeStyle = 'rgba(255,0,0,0.8)';
+            //BrushStyle
+            ctx.fillStyle = 'rgba(0,0,255,0.8)';
+            ctx.rect(startX, startY, x, y);
+            ctx.fillRect(startX, startY, x, y);
+            ctx.closePath();
+            ctx.stroke();
+        }
+    };
+  </script>
+</body>
+</html>

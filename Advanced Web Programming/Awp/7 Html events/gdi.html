@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<script>
+
+var canvas,context;
+
+window.onload = function(){
+        canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        context = canvas.getContext('2d');
+        document.body.appendChild(canvas);
+        draw();
+    };
+
+function draw(){
+        context.rect(120, 120, 250, 100);
+        context.stroke();
+        context.fillStyle = 'Red';
+        //context.fillStyle = 'rgb(250,120,20)';
+        context.beginPath();
+        context.moveTo(100, 150);
+        context.lineTo(450, 50);
+        context.fillRect(20, 20, 150, 100);
+        
+        context.stroke();
+        context.fill();
+    }
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="result"></div>
+
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click to increase counter</p>
+
+
+<script>
+
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("cdac", "Acts, Pune");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("cdac");
+} else {
+  document.getElementById("result").innerHTML = "does not support Web Storage...";
+}
+
+
+//function to click counter
+
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Counter click " + localStorage.clickcount + " time(s).";
+  } else {
+    document.getElementById("result").innerHTML = "does not support web storage...";
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+Assignment for today
+
+1. Implment SessionStorage to store number of counts 
+   on button click.
+2. Implement localStorage to store number of counts 
+   on button click
+3. Run seperate javascript file using Webworker.
+   Stop and start javascript execution using 
+   Webworker.
+4. Implement Rubber band line effect using canvas
+	a.Define event receivers for mousedown,
+				     mouseup,
+				     mousemove,
+				     mousemout
+	b.implement DrawLine function using
+		canvas context and context functions.
+
+5.Use validity function to test age of person in range 
+	using javascript event model.
+
+6.Server side events
+	php will broadcast data
+	html file will use EventSource object
+	Add event listener for eventsource to display
+		event data.
+7.Implemnt file write, read functionality at server side using file i/o operation.
+
+8. Wirite a simple php file to read and write csv files
+
+9. Download pfd library .
+   Explore pdf.php file to understand object oriented way for writing pdf functionality.
+   a. Write simple pDF document
+   b. display all countries from file in pdf document.
+   c. extend your PDF class to define header and footer.
+
+
+
+

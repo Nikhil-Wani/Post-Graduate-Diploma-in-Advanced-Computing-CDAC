@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Enter your Age:</p>
+
+<input id="age" type="number"
+                 min="29" 
+                max="65" required>
+<button onclick="myFunction()">OK</button>
+ 
+<p id="status"></p>
+
+<script>
+function myFunction() {
+
+    var inpObj = document.getElementById("age");
+    if (!inpObj.checkValidity()) {
+    document.getElementById("status").innerHTML = inpObj.validationMessage;
+  } else {
+    document.getElementById("status").innerHTML = "Input OK";
+  } 
+} 
+</script>
+</body>
+</html>
