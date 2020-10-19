@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /home/cvsroot/w3c-xml-schema/user/examples/building-blocks/pattern.xsd,v 1.1 2001/11/26 13:27:08 vdv Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<xs:simpleType name="date">
+								<xs:restriction base="xs:date">
+												<xs:pattern value=".+(Z|[+-].{5})" id="TZ-pattern"/>
+								</xs:restriction>
+				</xs:simpleType>
+				<xs:element name="myDate" type="myDate"/>
+</xs:schema>

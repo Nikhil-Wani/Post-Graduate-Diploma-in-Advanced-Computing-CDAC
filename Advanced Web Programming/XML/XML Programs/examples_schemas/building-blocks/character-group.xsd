@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /home/cvsroot/w3c-xml-schema/user/examples/building-blocks/character-group.xsd,v 1.1 2001/11/26 13:27:08 vdv Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:group name="character">
+					<xs:sequence>
+				<xs:element ref="born"/>
+				<xs:element ref="qualification"/>
+</xs:sequence>
+	</xs:group>
+	
+</xs:schema>

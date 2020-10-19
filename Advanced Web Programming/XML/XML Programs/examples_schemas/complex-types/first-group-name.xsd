@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="name" type="xs:token"/>
+   <xs:element name="first-name" type="xs:token"/>
+   <xs:element name="middle-name" type="xs:token"/>
+   <xs:element name="last-name" type="xs:token"/>
+   <xs:element name="qualification" type="xs:token"/>
+   <xs:element name="born" type="xs:date"/>
+   <xs:element name="dead" type="xs:date"/>
+   <xs:element name="isbn" type="xs:integer"/>
+   <xs:attribute name="id" type="xs:ID"/>
+   <xs:attribute name="lang" type="xs:language"/>
+	 <xs:attributeGroup name="bookAttributes">
+   <xs:attribute name="id" type="xs:ID"/>
+   <xs:attribute name="available" type="xs:boolean"/>
+	 </xs:attributeGroup>
+   <xs:group name="name">
+      <xs:choice>
+         <xs:element ref="name"/>
+         <xs:sequence>
+            <xs:element ref="first-name"/>
+            <xs:element ref="middle-name" minOccurs="0"/>
+            <xs:element ref="last-name"/>
+         </xs:sequence>
+      </xs:choice>
+   </xs:group>
+   <xs:element name="title">
+      <xs:complexType>
+         <xs:simpleContent>
+            <xs:extension base="xs:token">
+               <xs:attribute ref="lang"/>
+            </xs:extension>
+         </xs:simpleContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="library">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="book" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="author">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:group ref="name"/>
+            <xs:element ref="born"/>
+            <xs:element ref="dead" minOccurs="0"/>
+         </xs:sequence>
+         <xs:attribute ref="id"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="book">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="isbn"/>
+            <xs:element ref="title"/>
+            <xs:element ref="author" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="character" minOccurs="0" maxOccurs="unbounded"/>
+         </xs:sequence>
+         <xs:attributeGroup ref="bookAttributes"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="character">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:group ref="name"/>
+            <xs:element ref="born"/>
+            <xs:element ref="qualification"/>
+         </xs:sequence>
+         <xs:attribute ref="id"/>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /home/cvsroot/w3c-xml-schema/user/examples/building-blocks/xinclude.xsd,v 1.1 2001/11/26 13:27:08 vdv Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xi="http://www.w3.org/2001/XInclude"
+
+>
+<xs:simpleType name="myDateTime">
+								<xs:restriction base="xs:dateTime">
+												<xi:include href="pattern.xsd#TZ-pattern" parse="xml"/>
+								</xs:restriction>
+				</xs:simpleType>
+				<xs:element name="myDate" type="myDateTime"/>
+</xs:schema>

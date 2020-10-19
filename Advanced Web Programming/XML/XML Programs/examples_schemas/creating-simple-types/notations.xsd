@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /home/cvsroot/w3c-xml-schema/user/examples/creating-simple-types/notations.xsd,v 1.1 2001/10/31 22:57:07 vdv Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+				<xs:notation name="jpeg" public="image/jpeg" system="file:///usr/bin/xv"/>
+				<xs:notation name="gif" public="image/gif"  system="file:///usr/bin/xv"/>
+				<xs:notation name="png" public="image/png"  system="file:///usr/bin/xv"/>
+				<xs:notation name="svg" public="image/svg"  system="file:///usr/bin/xsmiles"/>
+				<xs:notation name="pdf"  public="application/pdf"  system="file:///usr/bin/acroread"/>
+
+				<xs:simpleType name="graphicalFormat">
+<xs:restriction base="xs:NOTATION">
+<xs:enumeration value="jpeg"/>
+<xs:enumeration value="gif"/>
+<xs:enumeration value="png"/>
+<xs:enumeration value="svg"/>
+<xs:enumeration value="pdf"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="picture">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:base64Binary">
+<xs:attribute name="type" type="graphicalFormat"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+</xs:schema>
