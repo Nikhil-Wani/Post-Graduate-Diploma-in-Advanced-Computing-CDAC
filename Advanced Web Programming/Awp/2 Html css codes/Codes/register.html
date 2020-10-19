@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<body>
+<h1>Register Customer</h1>
+
+<table>
+    <tr>
+        <td>E-mail</td>
+        <td><input type="email" name="userEmail" 
+            required 
+            placeholder="Enter Email Address"/></td>
+    </tr>
+
+    <tr>
+			<td>Url</td>
+			<td><input type="url" name="url" required autofocus/></td>
+    </tr>
+    <tr>
+			<td>Telephone</td>
+			<td><input type="tel" name="tel" required/></td>
+    </tr>
+    
+    <tr>
+            <td>Number</td>
+            <td><input type="number" name="number" min="1" max="5" 
+                      step="1" value="3" required/>
+            </td>
+
+    </tr>
+    <tr>
+            <td>Range</td>
+            <td>
+                    <input type="range" min=1 max=5 step=1 value=5 required/>
+            </td>
+    </tr>
+
+    <tr>
+			<td>DateTime</td>
+			<td><input type="date" name="datetime" required/></td>
+    </tr>
+    <tr>
+			<td>Month</td>
+			<td><input type="month" name="month" required/></td>
+	</tr>	
+
+    <tr>
+			<td colspan="2"><input type="submit" /></td>
+	</tr>	
+</table>
+</body>

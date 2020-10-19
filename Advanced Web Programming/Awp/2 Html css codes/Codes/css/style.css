@@ -1,0 +1,38 @@
+body {
+    margin: 2em 5em;
+    font-family:Georgia, "Times New Roman", Times, serif;
+    }
+h1, legend {
+    font-family:Arial, Helvetica, sans-serif;
+    }
+
+
+label, input, select {
+display:block;
+font-family:Arial, Helvetica, sans-serif;
+    
+}
+
+input, select {
+margin-bottom: 1em;
+}
+
+fieldset {
+margin-bottom: 2em;
+padding: 1em;
+}
+
+fieldset fieldset {
+margin-top: 1em;
+margin-bottom: 1em;
+}
+
+input[type="checkbox"] {
+display:inline;
+}
+.range {
+margin-bottom:1em;
+}	
+.card-type input, .card-type label {
+display:inline-block;
+}
