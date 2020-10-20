@@ -1,0 +1,19 @@
+List
+1. Array
+2. Linked List
+
+Array Vs Linked List
+1. Array's are static in nature 
+	(shortage or wastage of memory)
+	Faster Access/Traversal
+	Require shifting if middle element
+	is removed.
+	 
+2. Linked List's are dynamic in nature
+(grow and shrink at runtime as per need)
+	Fastest Insertion and Deletion.
+	Uses dynamically allocated node to
+	store data.
+	Collection of Nodes
+	
+	

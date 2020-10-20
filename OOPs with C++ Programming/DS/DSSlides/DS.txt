@@ -1,0 +1,14 @@
+Data Structure:
+A way of storing data in order
+to access it efficiently
+Linear D.S.
+In Linear D.S. each element has unique
+successor and predecessor and elements
+form sequence.
+ex. Array, Stack,Queue, Linked List
+
+
+Non Linear D.S.
+element can have multiple successors and
+predecessors
+
