@@ -1,0 +1,1544 @@
+--------------------------------------------------------------------------------
+                         BASIC DATA STRUCTURES IN C++
+-------------------------------------------------------------------------------
+
+In this Tutorial I assume that all of you have a working knowledge on how to use
+Classes in C++ because all of my data structures are going to be based on them.
+I realized that there are a lot of Data Structures Tutorials available but it's
+rare to find one that uses OOP. So this one will mainly focus on having a data
+structure incorporated as a class.
+CODE IS COMPILED IN BORLAND C++ UNLESS OTHERWISE MENTIONED.
+
+We shall cover the following Basic Data Structures in this Tutorial:
+
+1. STACKS
+2. QUEUES
+3. LINKED LISTS
+4. BINARY TREES
+
+We shall also combine data structures together later in this tutorial such as 
+combining a Linked List along with a Stack etc. We shall also learn about Doubly
+Linked Lists and Circular Linked Lists in this Tutorial.
+
+So let's begin without wasting any time.
+
+
+1)                              STACKS
+
+Stacks are commonly used Data Structures while writing code. It's concept is 
+really simple which makes it even simpler to write it in code. Consider this
+situation. There are a pile of 5 Books on a Table. You want to add one book to
+the pile. What do you do??? You simply add the book on the TOP of the pile. What 
+if you want the third book from the new 6 book pile? You then lift each book one
+by one from the TOP until the third book reaches the top. Then you take the 
+third book and replace all the others back into the pile by adding them from the 
+TOP.
+If you've noticed I've mentioned the word TOP in Caps. Yes, TOP is the most 
+important word as far as stacks are concerned. Data is stored in a Stack where 
+adding of data is permitted only from the top. Removing/Deleting Data is also 
+done from the top. As Simple as That. Now you may ask where Stacks are used? 
+Stacks are infact used on every Processor. Each processor has a stack where data
+and addresses are pushed or added to the stack. Again the TOP rule is followed 
+here. The ESP Register adds as a Stack Pointer that refers to the top of the
+stack in the Processor. Anyway, since the explaination of how the Processor
+Stack works is beyond the subject of this Tutorial, let's write our Stack Data
+Structure. Remember some Stack Terminology before continuing. Adding Data to the
+Stack is known as Pushing and deleting data from the stack is known as Popping.
+
+
+#include <iostream>
+
+using namespace std;
+
+#define MAX 10        // MAXIMUM STACK CONTENT
+
+
+class stack
+{
+
+  private:
+    int arr[MAX];   // Contains all the Data
+    int top;        //Contains location of Topmost Data pushed onto Stack
+
+  public:
+	 stack()         //Constructor
+	 {
+	    top=-1;      //Sets the Top Location to -1 indicating an empty stack
+	 }
+
+	 void push(int a)  // Push ie. Add Value Function
+	 {
+		top++;        // increment to by 1
+		if(top<MAX)
+		 {
+			arr[top]=a;  //If Stack is Vacant store Value in Array
+		 }
+		 else
+		 {
+			cout<<"STACK FULL!!"<<endl;
+			top--;
+		 }
+	 }
+
+	int pop()                  // Delete Item. Returns the deleted item
+	{
+		if(top==-1)
+		{
+			cout<<"STACK IS EMPTY!!!"<<endl;
+			return NULL;
+		}
+		else
+		{
+			int data=arr[top];     //Set Topmost Value in data
+			arr[top]=NULL;       //Set Original Location to NULL
+			top--;               // Decrement top by 1
+			return data;         // Return deleted item
+		}
+	 }
+};
+
+
+int main()
+{
+ stack a;
+ a.push(3);
+ cout<<"3 is Pushed\n";
+ a.push(10);
+ cout<<"10 is Pushed\n";
+ a.push(1);
+ cout<<"1 is Pushed\n\n";
+
+ cout<<a.pop()<<" is Popped\n";
+ cout<<a.pop()<<" is Popped\n";
+ cout<<a.pop()<<" is Popped\n";
+ return 0;
+}
+
+Output:
+3 is Pushed
+10 is Pushed
+1 is Pushed
+
+1 is Popped
+10 is Popped
+3 is Popped
+
+Clearly we can see that the last data pushed is the first one to be popped out.
+That's why a Stack is also known as a LIFO Data Structure which stands for "Last
+In,First Out" and I guess you know why.
+
+Let us see how we implemented the stack. We first created a variable called top
+that points to the top of the stack. It is initialised to -1 to indicate that 
+the stack is empty. As Data is entered, the value in top increments itself and
+data is stored into an array arr. Now there's one drawback to this Data
+Structure. Here we state the Maximum number of elements as 10. What if we need
+more than 10 Data Elements? In that case we combine a Stack along with a Linked
+List which will be explained later.
+Now once you've got this one right, let's proceed to the Queue Data Structure.
+
+
+2)                              QUEUES
+
+There's a huge crowd at your local grocery store. There are too many people 
+trying to buy their respective items and the Shopkeeper doesnt know from where 
+to start. Everyone wants their job done quickly and the shopkeeper needs an 
+efficient method to solve this problem. What does he do? He introduces a Queue 
+System based on the First Come, First Serve System. The Last Person trying to
+buy an item stands behind the last person at the END of the queue. The 
+Shopkeeper however is present at the FRONT end of the queue. He gives the item
+to the person in FRONT of the queue and after the transaction is done, the
+person in FRONT of the Queue Leaves. Then the person second in queue becomes the
+First person in the Queue.
+Do you get the point here? A Queue is similar to a stack except that addition of
+data is done in the BACK end and deletion of data is done in the FRONT.
+Writing a queue is a lot harder than writing a stack. We maintain 2 Integers in
+our Queue Data Structure, one signifying the FRONT end of the Queue and the 
+other referring to the BACK end of the Queue.
+Let us use the same coding style as we used for the Stack. We first initialise
+both the ends to -1 to indicate an empty queue. When Data is added to the queue 
+both ends get respective postive values. When New Data is added, the back End is
+incremented and when data is deleted the front end is decremented. This works
+fine but it has a major drawback. What if the Maximum capacity of the Queue is 5
+Items. Suppose the User has added 4 items, deleted 3 items and adds 2 again. The
+Stack wont permit him to add the last half of the data as it will report that
+the stack is full. The Reason is that we are blindly incrementing/decrementing 
+each end depending on addition/deletion not realising that both the ends are
+related to each other. I leave this as an excercise for you to answer. Why will
+our proposed Stack report the Stack as Full even though it's actually vacant?
+So we need another approach.In this method we focus more on the data than on the
+addition end and the deletion end.
+What we now use is the grocery store example again. Suppose there are 5 items in
+a queue and we want to delete them one by one. We first delete the first data
+item pointed by the deletion end. Then we shift all data one step ahead so that 
+the second item becomes the first, third item becomes second and so on...
+Another method would be to maintain the difference between the two ends which is 
+not practical. Hence we stick to our previous method. It might be slow in Big
+Queues, but it certainly works great. Here's the code.
+
+/*                           QUEUE IMPLEMENTATION
+		                       -Sanchit Karve
+                                         born2c0de
+*/
+
+#include <iostream>
+
+using namespace std;
+
+
+
+#define MAX 5           // MAXIMUM CONTENTS IN QUEUE
+
+
+class queue
+{
+ private:
+ 	int t[MAX];
+ 	int al;      // Addition End
+ 	int dl;      // Deletion End
+
+ public:
+  queue()
+  {
+  	dl=-1;
+  	al=-1;
+  }
+
+  void del()
+  {
+     int tmp;
+     if(dl==-1)
+     {
+	    cout<<"Queue is Empty";
+     }
+     else
+     {
+		for(int j=0;j<=al;j++)
+		{
+	  		if((j+1)<=al)
+	  		{
+	  			tmp=t[j+1];
+	  			t[j]=tmp;
+	  		}
+	  		else
+	  		{
+	  			al--;
+
+	  		if(al==-1)
+		 		dl=-1;
+		 	else
+		 		dl=0;
+	  		}
+		}
+     }
+  }
+
+void add(int item)
+{
+ 	if(dl==-1 && al==-1)
+ 	{
+  		dl++;
+  		al++;
+ 	}
+   else
+   {
+  		al++;
+  		if(al==MAX)
+   	{
+			cout<<"Queue is Full\n";
+			al--;
+			return;
+  		}
+ 	}
+ 	t[al]=item;
+
+}
+
+  void display()
+  {
+  	if(dl!=-1)
+   {
+   	for(int i=0;i<=al;i++)
+      	cout<<t[i]<<" ";
+   }
+   else
+   	cout<<"EMPTY";
+  }
+
+};
+
+int main()
+{
+ queue a;
+ int data[5]={32,23,45,99,24};
+
+ cout<<"Queue before adding Elements: ";
+ a.display();
+ cout<<endl<<endl;
+
+ for(int i=0;i<5;i++)
+ {
+   a.add(data[i]);
+   cout<<"Addition Number : "<<(i+1)<<" : ";
+   a.display();
+   cout<<endl;
+ }
+ cout<<endl;
+ cout<<"Queue after adding Elements: ";
+ a.display();
+ cout<<endl<<endl;
+
+ for(i=0;i<5;i++)
+ {
+   a.del();
+   cout<<"Deletion Number : "<<(i+1)<<" : ";
+   a.display();
+   cout<<endl;
+ }
+ return 0;
+}
+
+
+OUTPUT:
+Queue before adding Elements: EMPTY
+
+Addition Number : 1 : 32
+Addition Number : 2 : 32 23
+Addition Number : 3 : 32 23 45
+Addition Number : 4 : 32 23 45 99
+Addition Number : 5 : 32 23 45 99 24
+
+Queue after adding Elements: 32 23 45 99 24
+
+Deletion Number : 1 : 23 45 99 24
+Deletion Number : 2 : 45 99 24
+Deletion Number : 3 : 99 24
+Deletion Number : 4 : 24
+Deletion Number : 5 : EMPTY
+
+As you can clearly see through the output of this program that addition is
+always done at the end of the queue while deletion is done from the front end of 
+the queue. Once again the Maximum limit of Data will be extended later when we 
+learn Linked Lists.
+
+
+3)                                LINKED LISTS
+
+The Linked List is a more complex data structure than the stack and queue. A
+Linked List consists of two parts, one the DATA half and the POINTER half. The
+Data half contains the data that we want to store while the pointer half 
+contains a pointer that points to the next linked list data structure. This way
+we have a dynamic data structure as we can add as much data as we want within
+memory restrictions. And yes, pointers play a major role in Data Structures...No 
+Pointers, No Data Structures...So Knowledge of Pointers is a basic must before
+continuing.
+Look at this diagram that explains the Linked List:
+                                                      { P = Pointer , N = NULL }
+[12|P]-->-->-->-->[15|P]-->-->-->[29|P]-->-->-->[45|N]
+
+Here the data stored within the Data Structure is 12,15,29,45.
+As you can see, the pointer with 12 points to the next linked list which is 15 
+which points to 29 and so on.
+This is just a conceptual idea. In Reality all this data is stored in random 
+places in memory. Using Pointers help us to get all the data in order.
+While Adding Data to a Linked List we check for previously added Linked Lists.
+Then we reach the last node of the List where the pointer value is NULL and
+point it to our newly created linked list, else if there is no previously
+existing linked list we simply add one and set it's pointer to NULL.
+Deletion is more complex. Suppose we want to delete the data 15. Then we first
+find 15. Then we point the pointer which is present with 12 to the data in 29.
+Then we delete the node which contains 15 as it's data.
+Studying the Following Source code will help you understand and Appreciate the
+Linked List:
+
+#include <iostream>
+using namespace std;
+
+class linklist
+{
+	private:
+
+   	 struct node
+         {
+            int data;
+            node *link;
+         }*p;
+
+   public:
+
+         linklist();
+         void append( int num );
+         void add_as_first( int num );
+         void addafter( int c, int num );
+         void del( int num );
+         void display();
+         int count();
+         ~linklist();
+};
+
+linklist::linklist()
+{
+	p=NULL;
+}
+
+void linklist::append(int num)
+{
+   node *q,*t;
+
+   if( p == NULL )
+   {
+      p = new node;
+      p->data = num;
+      p->link = NULL;
+   }
+   else
+   {
+      q = p;
+      while( q->link != NULL )
+     	q = q->link;
+
+      t = new node;
+      t->data = num;
+      t->link = NULL;
+      q->link = t;
+   }
+}
+
+void linklist::add_as_first(int num)
+{
+   node *q;
+
+   q = new node;
+   q->data = num;
+   q->link = p;
+   p = q;
+}
+
+void linklist::addafter( int c, int num)
+{
+   node *q,*t;
+   int i;
+   for(i=0,q=p;i<c;i++)
+   {
+      q = q->link;
+      if( q == NULL )
+      {
+      	cout<<"\nThere are less than "<<c<<" elements.";
+        return;
+      }
+   }
+
+   t = new node;
+   t->data = num;
+   t->link = q->link;
+   q->link = t;
+}
+
+void linklist::del( int num )
+{
+   node *q,*r;
+   q = p;
+   if( q->data == num )
+   {
+      p = q->link;
+      delete q;
+      return;
+   }
+
+   r = q;
+   while( q!=NULL )
+   {
+      if( q->data == num )
+      {
+      	 r->link = q->link;
+         delete q;
+         return;
+      }
+
+      r = q;
+      q = q->link;
+   }
+   cout<<"\nElement "<<num<<" not Found.";
+}
+
+void linklist::display()
+{
+   node *q;
+   cout<<endl;
+
+   for( q = p ; q != NULL ; q = q->link )
+   	cout<<endl<<q->data;
+
+}
+
+int linklist::count()
+{
+   node *q;
+   int c=0;
+   for( q=p ; q != NULL ; q = q->link )
+   	c++;
+
+   return c;
+}
+
+linklist::~linklist()
+{
+   node *q;
+   if( p == NULL )
+   	return;
+
+   while( p != NULL )
+   {
+      q = p->link;
+      delete p;
+      p = q;
+   }
+}
+
+int main()
+{
+   linklist ll;
+   cout<<"No. of elements = "<<ll.count();
+   ll.append(12);
+   ll.append(13);
+   ll.append(23);
+   ll.append(43);
+   ll.append(44);
+   ll.append(50);
+
+   ll.add_as_first(2);
+   ll.add_as_first(1);
+
+   ll.addafter(3,333);
+   ll.addafter(6,666);
+
+   ll.display();
+   cout<<"\nNo. of elements = "<<ll.count();
+
+   ll.del(333);
+   ll.del(12);
+   ll.del(98);
+   cout<<"\nNo. of elements = "<<ll.count();
+   return 0;	
+}
+
+OUTPUT:
+No. of elements = 0
+
+1
+2
+12
+13
+333
+23
+43
+666
+44
+50
+No. of elements = 10
+Element 98 not Found.
+No. of elements = 8
+
+Here as you see, the class contains a structure node that consists of an integer
+type for data and a pointer pointing to another node structure. Here we maintain
+a node pointer p that always points to the first item in the list. Here is a
+list of the functions that are used in the data structure.
+linklist()                           : CONSTRUCTOR
+void append( int num );              : ADD AT END OF LIST
+void add_as_first( int num );        : ADD TO BEGINNING OF LIST
+void addafter( int c, int num );     : ADD DATA num AFTER POSTION c
+void del( int num );                 : DELETE DATA num
+void display();                      : DISPLAY LINKED LIST
+int count();                         : NUMBER OF ITEMS IN LIST
+~linklist();                         : DESTRUCTOR
+
+Many places you will see statements like q=q->link inside a loop. This statement 
+just shifts the pointer from one node to the other. the Destructor as well as 
+the del() function use the delete operator to deallocate space that was
+previously allocated by the new operator. The Rest should be clear if you have a 
+basic understanding of pointers.
+The advantage of using pointers is that you dont have to worry about wasting
+space by allocating a lot of memory beforehand. As the need for data increases, 
+memory is allocated accordingly. But the flip side is that to access each node
+we have to iterate through each node till we reach the desired node. That's why 
+linked lists have different forms of themselves for easier access. For example 
+Circular and Doubly Linked Lists. Circular Linked Lists are those in which the
+last node always points to the first node in the list. Doubly Linked Lists 
+contain two pointers, one that points to the next node and the other that points 
+to the previous node.
+I shall only give source code for Circular Linked List, while code for doubly 
+linked lists is given as an excercise. However, if you cant write it...you are
+free to contact me at born2c0de@hotmail.com
+
+3.A)             STACK DATA STRUCTURE IMPLEMENTING LINKED LISTS
+
+Here, we use the same concept of the stack but eliminate the MAXIMUM data items
+constraint. Since we shall be using Linked Lists to store data in the stack,
+the Stack can hold as much as data as it wants as long as the data is within
+Memory Limits.Here's the code:
+
+#include <iostream>
+
+using namespace std;
+
+struct node
+{
+   int data;
+   node *link;
+};
+
+class lstack
+{
+      private:
+              node* top;
+              
+      public:
+             lstack()
+             {
+             	top=NULL;
+             }
+             
+             void push(int n)
+             {
+             	node *tmp;
+             	tmp=new node;
+             	if(tmp==NULL)
+             	   cout<<"\nSTACK FULL";
+             	   
+             	tmp->data=n;
+             	tmp->link=top;
+             	top=tmp;
+             }
+
+             int pop()
+             {
+             	if(top==NULL)
+             	{
+             		cout<<"\nSTACK EMPTY";
+             		return NULL;
+             	}
+                node *tmp;
+                int n;
+                tmp=top;
+                n=tmp->data;
+                top=top->link;
+                delete tmp;
+                return n;
+             }
+
+             ~lstack()
+             {
+             	if(top==NULL)
+             	   return;
+
+             	node *tmp;
+             	while(top!=NULL)
+             	{
+             	   tmp=top;
+             	   top=top->link;
+             	   delete tmp;
+             	}
+             }
+};
+
+int main()
+{
+	lstack s;
+	s.push(11);
+	s.push(101);
+	s.push(99);
+	s.push(78);
+	cout<<"Item Popped = "<<s.pop()<<endl;
+	cout<<"Item Popped = "<<s.pop()<<endl;
+	cout<<"Item Popped = "<<s.pop()<<endl;
+	return 0;
+}	
+
+
+
+3.B)             QUEUES WITH LINKED LIST IMPLEMENTATION
+
+Similar to the one above, the queued linked list removes the maximum data limit
+as well. Here is the code:
+
+#include <iostream>
+
+using namespace std;
+
+struct node
+{
+   int data;
+   node *link;
+};
+
+class lqueue
+{
+ private:
+    node *front,*rear;
+    
+ public:
+    lqueue()
+    {
+    	front=NULL;
+    	rear=NULL;
+    }
+    
+    void add(int n)
+    {
+    	node *tmp;
+    	tmp=new node;
+    	if(tmp==NULL)
+    	   cout<<"\nQUEUE FULL";
+    	   
+    	tmp->data=n;
+    	tmp->link=NULL;
+    	if(front==NULL)
+    	{
+    		rear=front=tmp;
+    		return;
+    	}
+            rear->link=tmp;
+            rear=rear->link;
+    }
+    
+    int del()
+    {
+    	if(front==NULL)
+    	{
+    		cout<<"\nQUEUE EMPTY";
+    		return NULL;
+    	}
+        node *tmp;
+        int n;
+        n=front->data;
+        tmp=front;
+        front=front->link;
+        delete tmp;
+        return n;
+    }
+    
+    ~lqueue()
+    {
+    	if(front==NULL)
+    	   return;
+    	node *tmp;
+    	while(front!=NULL)
+    	{
+    		tmp=front;
+    		front=front->link;
+    		delete tmp;
+    	}
+     }
+};
+
+int main()
+{
+	lqueue q;
+	q.add(11);
+	q.add(22);
+	q.add(33);
+	q.add(44);
+	q.add(55);
+	cout<<"\nItem Deleted = "<<q.del();
+	cout<<"\nItem Deleted = "<<q.del();
+	cout<<"\nItem Deleted = "<<q.del();
+	return 0;
+}
+
+
+3.C)                     CIRCULAR LINKED LISTS
+
+Circular Linked Lists are just like normal linked lists except that the pointer
+of the last item in the list points to the first item in the list. You must be
+wondering...Why would anyone ever want to do such a thing? Well...did you know
+that circular linked lists are used almost in every situation, they are infact
+used in Electronic Advertisements where each ad is added to the list and is
+displayed. After the last ad is displayed the linked list will automatically
+display the first ad in the List.
+Now let us see how we can implement the Circular Linked List. I've written this
+code in much more detail plus I've included a SLIDESHOW Feature that shows the
+Data in the List after a time-period is elapsed. It goes on displaying the data
+until a key is pressed. Have a look:
+
+#include <windows.h>
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+
+class CL_list
+{
+   private:
+      struct node
+      {
+      	int data;
+        node *link;
+      };
+      struct node *p;
+
+   public:
+      CL_list();
+      CL_list(CL_list& l);
+      ~CL_list();
+      void add(int);
+      void del();
+      void addatbeg(int);
+      void display();
+      void slideshow(float,int,int);
+      int count();
+      void wait(float);
+      bool operator ==(CL_list);
+      bool operator !=(CL_list);
+      void operator =(CL_list);
+};
+
+   CL_list::CL_list()
+   {
+      p=NULL;
+   }
+
+   CL_list::CL_list(CL_list& l)
+   {
+      node *x;
+      p=NULL;
+      x=l.p;
+      if(x==NULL)
+      	return;
+      for(int i=1;i<=l.count();i++)
+      {
+      	add(x->data);
+         x=x->link;
+      }
+   }
+
+   CL_list::~CL_list()
+   {
+   	node *q,*t;
+      q=p;
+      t=p;
+      if(p==NULL)
+      	return;
+      while(q->link!=t)
+      {
+      	p=q;
+         q=q->link;
+         delete p;
+      }
+      p=q;
+      delete p;
+   }
+
+   void CL_list::add(int n)
+   {
+      if(p==NULL)
+      {
+      	 node *q;
+         q=new node;
+         q->data=n;
+         q->link=q;
+         p=q;
+         return;
+      }
+      node *q;
+      q=p;
+      while(q->link != p)
+      	q=q->link;
+
+      node *t;
+      t=new node;
+      t->data=n;
+      t->link=p;
+      q->link=t;
+   }
+
+   void CL_list::display()
+   {
+      if(p==NULL)
+      {
+      	cout<<"EMPTY LIST\n";
+         return;
+      }
+      node *q;
+      q=p;
+      for(int i=1;i<=this->count();i++)
+      {
+       	 cout<<q->data<<endl;
+         q=q->link;
+      }
+   }
+
+   int CL_list::count()
+   {
+      node *q;
+      q=p;
+      int c=0;
+      if(p==NULL)
+      	return 0;
+      else
+      	c++;
+      while(q->link != p)
+      {
+         c++;
+         q=q->link;
+      }
+      return c;
+   }
+
+   void CL_list::del()
+   {
+      if(p==NULL)
+      	return;
+      if(p->link==p)
+      {
+      	p=NULL;
+      }
+      else
+      {
+      node *q;
+      q=p;
+      while(q->link != p )
+      	q=q->link;
+
+      q->link=p->link;
+      q=p;
+      p=(q->link == NULL ? NULL : p->link);
+      delete q;
+      }
+
+   }
+
+   void CL_list::addatbeg(int n)
+   {
+      node *q,*t;
+      q=p;
+      while(q->link!=p)
+      	q=q->link;
+
+      t=new node;
+      t->data=n;
+      t->link=p;
+      q->link=t;
+      p=t;
+   }
+
+   void CL_list::slideshow(float dlay,int x,int y)
+   {
+    /*  if(p==NULL)
+      {
+         gotoxy(x,y);
+      	cout<<"EMPTY LIST\n";
+         return;
+      }
+      node *q;
+      q=p;
+      while(!kbhit())
+      {
+      	 gotoxy(x,y);
+         cout<<"               ";
+         gotoxy(x,y);
+         cout<<q->data;
+         wait(dlay);
+         q=q->link;
+      }*/
+   }
+
+   void CL_list::wait(float t)
+   {
+      long time=GetTickCount()+(t*1000L);
+      while(GetTickCount()<=time)
+      {
+      /*        WAIT !!! */
+      }
+   }
+
+   bool CL_list::operator ==(CL_list t)
+   {
+      if(t.p==NULL && p==NULL)
+      	return 1;
+
+      if(this->count() != t.count())
+      	return 0;
+      node *q;
+      q=p;
+      bool flag;
+      flag=1;
+      node *a;
+      a=t.p;
+      for(int i=1;i<=count();i++)
+      {
+      	if(a->data!=q->data)
+           flag=0;
+         a=a->link;
+         q=q->link;
+      }
+      if(a->data!=q->data)
+      	flag=0;
+      return flag;
+   }
+
+   bool CL_list::operator !=(CL_list t)
+   {
+   	return !(this->operator==(t));
+   }
+
+
+   int main()
+   {
+
+      CL_list a;
+      a.add(1);
+      a.add(2);
+      a.add(3);
+      a.add(4);
+      a.addatbeg(128);
+      a.del(); // 128 is deleted
+      cout<<"\nLIST DATA:\n";
+      a.display();
+
+      CL_list b=a;
+      if(b!=a)
+      	cout<<endl<<"NOT EQUAL"<<endl;
+      else
+      	cout<<endl<<"EQUAL"<<endl;
+      a.slideshow(1,13,13);
+
+      return 0;
+}
+
+Here once again we have made sure that the last node always points to the first 
+node. Everything else seems fine. Comments should be enough to explain the code.
+The interesting part of this code is the slideshow() function. It plainly 
+displays the list in an infinite loop which can be terminated by pressing a key.
+The wait() function allows the delay while the kbhit() function checks for a
+keypress.
+Now comes the test. Write a similar linked list only with the following changes:
+1) Structure node should be like this:
+       struct node
+       {
+         int data;
+         node *next;  // Pointer to Next Node
+         node *prev;  // Pointer to Previous Node
+       };
+
+2)  Remember that while adding and deleting the next and previous pointers have
+to be set up accordingly.
+
+3) Include a display function with a parameter like this:
+      void linklist::display(int type)
+      {
+           if(type==1)
+           {
+            // Code for output from First Node to Last node
+           }
+           else
+           {
+            // Code for output from Last Node to First
+           }
+      }
+This function is really easy to write if you understand how to use both the next
+and previous pointers.
+
+If you still cant write the code mail me with your difficulties at my email add: 
+born2c0de@hotmail.com
+
+4)                                 BINARY TREES
+
+Uptil now all data structures that we have covered (Stack,Queue,Linked List) are 
+linear in nature ie. they have a definate order of placement. Now we shall study
+Binary Trees which requires a different thought process as it is a non linear
+data structure.
+
+A Binary Tree consists of a main node known as the Root. The Root then has two 
+sub-sections, ie. the left and the right half. The data subsequently stored 
+after the root is created depends on it's value compared to the root.
+Suppose the root value is 10 and the Value to be added is 15, then the data is 
+added to the right section of the root.
+The Basic idea is that every node can be thought of a binary tree itself. Each 
+node has two pointers, one to the left and the other to the right. Depending on
+the value to be stored, it is placed after a node's right pointer if the value
+of the node is lesser than the one to be added or the node's left pointer if
+viceversa.
+
+Let's take an Example. To add the Following List of Numbers, we end up with a
+Binary Tree like this:
+
+32 16 34 1 87 13 7 18 14 19 23 24 41 5 53
+
+KEY:
+      [X]              X = Root   L/R = Data at Left/Right Node of X
+[L]<---|--->[R]
+
+
+                            ROOT
+                            [32]
+                             |
+                     [16]<---|--->[34]
+                      |            |
+               [1]<---|--->[18]    |--->[87]
+                |           |            |
+                |           |    [41]<---|
+                |           |     |
+                |           |     |--->[53]
+                |           |
+                |           |--->[19]
+                |                  |--->[23]
+                |                        |--->[24]
+                |
+                |--->[13]
+                       |
+                [7]<---|--->[14]
+          [5]<---|
+
+Here's How:
+**: KEEP ADDING DATA IN THE TREE ON PAPER AFTER EACH STEP BELOW TO UNDERSTAND
+    HOW THE TREE IS FORMED.
+
+1) Since 32 is the First Number to be added, 32 becomes the root of the tree.
+2) Next Number is 16 which is lesser than 32 Hence 16 becomes left node of 32.
+3) 34. Since 34 > 32 , 34 becomes the right node of the ROOT.
+
+4) 1. Since 1 < 32 we jump to the left node of the ROOT. But since the left node
+   has already been taken we test 1 once again. Since 1 < 16, 1 becomes the left
+   node of 16.
+
+5) 87. Since 87 > 32 we jump to the right node of the root. Once again this
+   space is occupied by 34. Now since 87 > 34, 87 becomes the right node of 34.
+
+6) 13. Since 13 < 32 we jump to left node of the root. There, 13 < 16 so we
+   continue towards the left node of 16. There 13 > 1, so 13 becomes the right
+   node of 1.
+
+7) Similarly work out addition till the end ie. before Number 53.
+
+8) 53. Since 53 > 32 we jump to the right node of the root. There 53 > 34 so we
+   continue to the right node of 34. There 53 < 87 so we continue towards the
+   left node of 87. There 53 > 41 so we jump to the right node of 41. Since the
+   Right node of 41 is empty 53 becomes the right node of 41.
+
+This should give you an idea of how a Binary Tree works. You must know that:
+1) The linking of nodes to nodes in a Binary Tree is one to one in nature
+   ie. a node cannot be pointed by more than 1 node.
+2) A Node can point to two different sub-nodes at the most.
+
+Here in the binary tree above there are a few nodes whose left and right
+pointers are empty ie. they have no sub-node attached to them. So Nodes 5,14,18,
+19,23,24,41 have their left nodes empty.
+
+There are three popular ways to display a Binary Tree. Displaying the trees
+contents is known as transversal. There are three ways of transversing a tree iw.
+in inorder,preorder and postorder transversal methods. Description of each is
+shown below:
+
+PREORDER:
+1) Visit the root.
+2) Transverse the left leaf in preorder.
+3) Transverse the right leaf in preorder.
+
+INORDER:
+1) Transverse the left leaf in inorder.
+2) Visit the root.
+3) Transverse the right leaf in inorder.
+
+POSTORDER:
+1) Transverse the left leaf in postorder.
+2) Transverse the right leaf in postorder.
+3) Visit the root.
+
+Writing code for these three methods are simple if we understand the recursive
+nature of a binary tree. Binary tree is recursive, as in each node can be
+thought of a binary tree itself. It's just the order of displaying data that
+makes a difference for transversal.
+
+Deletion from a Binary Tree is a bit more difficult to understand. For now just
+remember that for deleting a node, it is replaced with it's next inorder
+successor. I'll explain everything after the Binary Tree code.
+Now that you've got all your Binary Tree Fundas clear, let's move on with the
+Source code.
+
+#include <iostream>
+
+using namespace std;
+
+#define YES 1
+#define NO 0
+
+class tree
+{
+	private:
+		struct leaf
+		{
+			int data;
+			leaf *l;
+			leaf *r;
+		};
+		struct leaf *p;
+
+	public:
+		tree();		
+		~tree();
+		void destruct(leaf *q);
+		tree(tree& a);
+		void findparent(int n,int &found,leaf* &parent);
+		void findfordel(int n,int &found,leaf *&parent,leaf* &x);
+		void add(int n);
+		void transverse();
+		void in(leaf *q);
+		void pre(leaf *q);
+		void post(leaf *q);
+		void del(int n);
+};
+		
+tree::tree()
+{
+	p=NULL;
+}
+
+tree::~tree()
+{
+	destruct(p);
+}
+
+void tree::destruct(leaf *q)
+{
+	if(q!=NULL)
+	{
+		destruct(q->l);
+		del(q->data);
+		destruct(q->r);
+	}
+}
+void tree::findparent(int n,int &found,leaf *&parent)
+{
+	leaf *q;
+	found=NO;
+	parent=NULL;
+
+	if(p==NULL)
+		return;
+
+	q=p;
+	while(q!=NULL)
+	{
+		if(q->data==n)
+		{
+			found=YES;
+			return;
+		}
+		if(q->data>n)
+		{
+			parent=q;
+			q=q->l;
+		}
+		else
+		{
+			parent=q;
+			q=q->r;
+		}
+	}
+}
+
+void tree::add(int n)
+{
+	int found;
+	leaf *t,*parent;
+	findparent(n,found,parent);
+	if(found==YES)
+		cout<<"\nSuch a Node Exists";
+	else
+	{
+		t=new leaf;
+		t->data=n;
+		t->l=NULL;
+		t->r=NULL;
+
+		if(parent==NULL)
+			p=t;
+		else
+			parent->data > n ? parent->l=t : parent->r=t;
+	}
+}
+
+void tree::transverse()
+{
+	int c;
+	cout<<"\n1.InOrder\n2.Preorder\n3.Postorder\nChoice: ";
+	cin>>c;
+	switch(c)
+	{
+		case 1:
+			in(p);
+			break;
+
+		case 2:
+			pre(p);
+			break;
+
+		case 3:
+			post(p);
+			break;
+	}
+}
+
+void tree::in(leaf *q)
+{
+	if(q!=NULL)
+	{
+		in(q->l);
+		cout<<"\t"<<q->data<<endl;
+		in(q->r);
+	}
+	
+}
+
+void tree::pre(leaf *q)
+{
+	if(q!=NULL)
+	{
+		cout<<"\t"<<q->data<<endl;
+		pre(q->l);
+		pre(q->r);
+	}
+	
+}
+
+void tree::post(leaf *q)
+{
+	if(q!=NULL)
+	{
+		post(q->l);
+		post(q->r);
+		cout<<"\t"<<q->data<<endl;		
+	}
+	
+}
+
+void tree::findfordel(int n,int &found,leaf *&parent,leaf *&x)
+{
+	leaf *q;
+	found=0;
+	parent=NULL;
+	if(p==NULL)
+		return;
+
+	q=p;
+	while(q!=NULL)
+	{
+		if(q->data==n)
+		{
+			found=1;
+			x=q;
+			return;
+		}
+		if(q->data>n)
+		{
+			parent=q;
+			q=q->l;
+		}
+		else
+		{
+			parent=q;
+			q=q->r;
+		}
+	}
+}
+
+void tree::del(int num)
+{
+	leaf *parent,*x,*xsucc;
+	int found;
+
+	// If EMPTY TREE
+	if(p==NULL)
+	{
+		cout<<"\nTree is Empty";
+		return;
+	}
+	parent=x=NULL;
+	findfordel(num,found,parent,x);
+	if(found==0)
+	{
+		cout<<"\nNode to be deleted NOT FOUND";
+		return;
+	}
+
+	// If the node to be deleted has 2 leaves
+	if(x->l != NULL && x->r != NULL)
+	{
+		parent=x;
+		xsucc=x->r;
+
+		while(xsucc->l != NULL)
+		{
+			parent=xsucc;
+			xsucc=xsucc->l;
+		}
+		x->data=xsucc->data;
+		x=xsucc;
+	}
+
+	// if the node to be deleted has no child
+	if(x->l == NULL && x->r == NULL)
+	{
+		if(parent->r == x)
+			parent->r=NULL;
+		else
+			parent->l=NULL;
+
+		delete x;
+		return;
+	}
+
+	// if node has only right leaf
+	if(x->l == NULL && x->r != NULL )
+	{
+		if(parent->l == x)
+			parent->l=x->r;
+		else
+			parent->r=x->r;
+
+		delete x;
+		return;
+	}
+
+	// if node to be deleted has only left child
+	if(x->l != NULL && x->r == NULL)
+	{
+		if(parent->l == x)
+			parent->l=x->l;
+		else
+			parent->r=x->l;
+
+		delete x;
+		return;
+	}
+}
+
+
+
+
+
+int main()
+{
+	tree t;
+	int data[]={32,16,34,1,87,13,7,18,14,19,23,24,41,5,53};
+	for(int i=0;i<15;i++)
+		t.add(data[i]);
+
+	t.transverse();
+	t.del(16);
+	t.transverse();
+	t.del(41);
+	t.transverse();
+	return 0;
+}
+
+OUTPUT:
+
+1.InOrder
+2.Preorder
+3.Postorder
+Choice: 1
+        1
+        5
+        7
+        13
+        14
+        16
+        18
+        19
+        23
+        24
+        32
+        34
+        41
+        53
+        87
+
+1.InOrder
+2.Preorder
+3.Postorder
+Choice: 2
+        32
+        18
+        1
+        13
+        7
+        5
+        14
+        19
+        23
+        24
+        34
+        87
+        41
+        53
+
+1.InOrder
+2.Preorder
+3.Postorder
+Choice: 3
+        5
+        7
+        14
+        13
+        1
+        24
+        23
+        19
+        18
+        53
+        87
+        34
+        32
+Press any key to continue
+
+NOTE: Visual C++ may give Runtime Errors with this code. Compile with Turbo C++.
+
+Just by looking at the output you might realise that we can print out the whole
+tree in ascending order by using inorder transversal. Infact Binary Trees are
+used for Searching [ Binary Search Trees {BST} ] as well as in Sorting.
+The Addition of data part seems fine. Only the deletion bit needs to be
+explained.
+
+For deletion of data there are a few cases to be considered:
+1) If the leaf to be deleted is not found.
+2) If the leaf to be deleted has no sub-leafs.
+3) If the leaf to be deleted has 1 sub-leaf.
+4) If the leaf to be deleted has 2 sub-leafs.
+
+Dealing with the first case is simple, we just mention an error message and
+leave it out there.
+In the second case since the node has no sub-nodes, the memory occupied by this
+should be freed and either the left link or the right link of the parent of this
+node should be set to NULL. Which of these should be set to NULL depends upon
+whether the node being deleted is a left child or a right child of its parent.
+In the third case we just adjust the pointer of the parent of the leaf to be
+deleted such that after deletion it points to the child of the node being
+deleted.
+The last case in which the leaf to be deleted has to sub-leaves of its own is
+rather complicated.The whole logic is to locate the inorder successor, copy it's
+data and reduce the problem to simple deletion of a node with one or zero leaves.
+Consider in the above program...(Refer to the previous tree as well) when we are
+deleting 16 we search for the next inorder successor. So we simply set the data
+value to 5 and delete the node with value 5 as shown for cases 2 and 3.
+
+That's all for Binary Trees. Binary Trees are used for various other things
+which even include Compression algorithms,binary searching,sorting etc. A lot of
+Huffman,Shannon-Fano and other Compression algorithms use Binary Trees. If you
+want source code of these Compression codes you can freely contact me at my mail
+address.
+
+That wraps up this Data Structure Tutorial. There are a lot more structures that
+i'd love to mention such as Sparse Matrices, Graphs etc. but since the aim of
+this tutorial was to give an introduction to Data Structures i decided not to
+include them in this Tutorial. Maybe I can save them for another Tutorial that
+starts from this point itself...later...
+
+If you have any problems in understanding the text or the source code do let me
+know. Any valuable comments and suggestions are welcome.
+
+                                                   -Sanchit Karve
+                                                      born2c0de
+                                                 "Accept No Limits"
+--------------------------------------------------------------------------------
+[EOF]

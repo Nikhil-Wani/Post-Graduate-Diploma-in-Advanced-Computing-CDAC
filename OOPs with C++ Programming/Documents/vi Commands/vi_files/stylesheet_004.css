@@ -1,0 +1,97 @@
+.calendar_monthyear{
+text-align:center;
+color:#f0f0f0;
+font-weight: bold;
+font-size: 8pt;
+}
+.calendar_monthyear a:link,.calendar_monthyear a:visited{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+text-align: center;
+font-weight: bold;
+font-size: 6pt;
+font-style: normal;
+color:#FF0000;
+}
+.calendar_daynames {
+text-align:center;
+color:#f0f0f0;
+font-weight: bold;
+font-size: 7pt;
+}
+.calendar_day{
+text-align:center;
+color:#c0c0c0;
+font-size: 7pt;
+}
+.calendar_noday{
+background:#000000;
+}
+.calendar_today{
+vertical-align:middle;
+text-align:center;
+font-size: 7pt;
+color:#ffffff;
+border-width: 1px;
+border-color: #FF9933;
+border-style: solid;
+}
+.calendar_today a:link,.calendar_eventday a:visited{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+text-align: center;
+font-weight: bold;
+font-size: 7pt;
+font-style: normal;
+color:#FFFFFF;
+}
+.calendar_today a:active,.calendar_eventday a:hover{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+text-align: center;
+font-weight: bold;
+font-size: 7pt;
+font-style: normal;
+color:#FF9933;
+}
+.calendar_eventday a:link,.calendar_eventday a:visited{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+text-align: center;
+font-weight: bold;
+font-size: 7pt;
+font-style: normal;
+color:#FFFFFF;
+}
+.calendar_eventday a:active,.calendar_eventday a:hover{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+text-align: center;
+font-weight: bold;
+font-size: 7pt;
+font-style: normal;
+color:#FF9933;
+}
+.calendar_main{
+text-align: center;
+color:#f0f0f0;
+background:#000000;
+}
+.event_monthyear{
+text-align:center;
+color:#000000;
+font-weight: bold;
+font-size: 10pt;
+}
+.event_heading{
+text-align:left;
+color:#FF0000;
+font-weight: bold;
+font-size: 10pt;
+}
+.event_data{
+text-align:left;
+color:#00FF00;
+font-weight: normal;
+font-size: 10pt;
+}
