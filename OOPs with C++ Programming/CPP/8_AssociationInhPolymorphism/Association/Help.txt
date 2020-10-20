@@ -1,0 +1,14 @@
+ Address.h
+ Address.cpp (#include "Address.h")
+ g++ Address.cpp
+ 
+ Student.h (#include "Address.h")
+ Student.cpp (#include "Student.h")
+ 
+ Tester.cpp (#include "Student.h")
+ g++ Address.cpp Student.cpp Tester.cpp
+ 
+ In case of one file implementation 
+ Address.cpp
+ Student.cpp (include "Address.cpp")
+ g++ Student.cpp
