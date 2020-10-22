@@ -1,0 +1,55 @@
+<html>
+<head>
+<style>
+.myc1{
+   background-color:yellow;
+   color:red;
+   height:100px;
+   width:500px;
+   border:2px solid blue;
+   border-radius:40px;
+
+}
+
+
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+   $('div p:first-child').click(function(){
+          console.log("clicked on para");
+   });
+   
+   $('div p:first-child').mousedown(function(){
+         console.log("mousedown on para");
+   });
+    $('div p:first-child').mouseup(function(){
+         console.log("mouseup on para");
+   });
+   
+ })
+
+
+</script>
+</head>
+<body>
+
+<div id="mydiv">
+
+
+<p>This is para 1</p>
+<p>This is para 2</p>
+<p>This is para 3</p>
+
+<p id="myp">add text box here</p>
+ 
+ 
+</div>
+
+
+<h1>This is h1</h1>
+
+
+ 
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+.myc1{
+   background-color:yellow;
+   color:red;
+   height:100px;
+   width:500px;
+   border:2px solid blue;
+   border-radius:40px;
+
+}
+
+
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+   $('#copy').click(function(){
+       cp=$('#add').clone();
+	   $('#mydiv').prepend(cp);
+   });
+   
+   $('#assign').click(function(){
+        
+       /* $('#add').bind('click',function(){
+		    $('div').append("<input type='text' name='nm'>");
+			
+			
+		});*/
+		
+		$('#mydiv').delegate('#add','click',function(){
+		      $('div').append("<input type='text' name='nm'>");
+		});
+		
+		
+   });
+   $('#stop').click(function(){
+     
+     // $('#add').unbind('click');
+	 $('#mydiv').undelegate('#add','click');
+   })
+   
+   
+ })
+
+
+</script>
+</head>
+<body>
+
+<div id="mydiv">
+
+<input type="button" name="btn" value="create copy" id="copy">
+<input type="button" name="btn" value="assign event" id="assign">
+<input type="button" name="btn" value="add textbox" id="add">
+<input type="button" name="btn" value="Stop adding" id="stop">
+</div>
+<p>This is para 1</p>
+<p>This is para 2</p>
+<p>This is para 3</p>
+<div class="myclass">
+<p id="myp">add text box here</p>
+ 
+ 
+</div>
+
+
+<h1>This is h1</h1>
+
+
+ 
+</body>
+</html>

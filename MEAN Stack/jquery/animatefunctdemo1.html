@@ -1,0 +1,33 @@
+<html>
+<head>
+<style>
+.check{
+   position:absolute;
+   height:100px;
+   width:100px;
+   background-color:cyan;
+   border:4px dashed red;
+   border-radius:40px;
+   
+}
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+  $("div").animate({'left': '250px','height':'250px','width':'300px'});
+}); 
+ 
+})//end of ready
+//
+
+</script>
+</head>
+<body>
+ 
+   <button type="button" name="btn" id="toggle">animate</button>
+    <div class="check"> 
+        <p> this is para</p>
+   </div>
+ </body>
+</html>

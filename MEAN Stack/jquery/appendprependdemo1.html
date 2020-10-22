@@ -1,0 +1,64 @@
+<html>
+<head>
+<style>
+.myc1{
+   background-color:yellow;
+   color:red;
+   height:100px;
+   width:500px;
+   border:2px solid blue;
+   border-radius:40px;
+
+}
+
+
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+   
+   $('#app').click(function(){
+      $('div').append("<input type='text' name='nm'>");
+   });
+    $('#prep').click(function(){
+      $('div').prepend("<input type='text' name='nm'>");
+   });
+   
+  /* $('h1').hover(function(){
+       // $('h1').wrap("<div class='myc1'>");
+	   $('h1').addClass("myc1");
+   },function(){
+       // $('h1').wrap("<div class='myc1'>");
+	   $('h1').removeClass("myc1");
+   } );*/
+   $('h1').hover(function(){
+       // $('h1').wrap("<div class='myc1'>");
+	   $('h1').toggleClass("myc1");
+   });
+   
+})
+
+
+</script>
+</head>
+<body>
+<input type="button" name="btn" value="append" id="app">
+<input type="button" name="btn" value="prepend" id="prep">
+<div class="myclass">
+
+ <p class="myclass"> Hello World! in div  child 0</p>
+ <p class="myclass"> Hello World!in div child 1</p>
+ <p class="myclass"> Hello World! in div child 2</p>
+ <p class="myclass"> Hello World! in div child 3</p>
+ <p class="myclass"> Hello World!in div child 4</p>
+ <p class="myclass"> Hello World! in div last child</p>
+ 
+</div>
+
+
+<h1>This is h1</h1>
+
+
+ 
+</body>
+</html>

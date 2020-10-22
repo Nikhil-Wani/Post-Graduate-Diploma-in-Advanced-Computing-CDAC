@@ -1,0 +1,63 @@
+<html>
+<head>
+<style>
+.myc1{
+   background-color:yellow;
+   color:red;
+   height:150px;
+   width:800px;
+   border:2px solid blue;
+   border-radius:40px;
+
+}
+
+
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+   $('#show').click(function(){
+	$('h1').show('fast',function(){
+	 console.log("show completed");
+	
+	});
+   
+   
+   
+   });
+    $('#hide').click(function(){
+	$('h1').hide(1000,function(){
+	 console.log(" hide completed");
+	
+	});
+   
+   
+   
+   });
+   
+   
+    $('#toggle').click(function(){
+	$('h1').toggle(1000,function(){
+	 console.log(" toggle completed");
+	
+	});
+   
+   
+   
+   });
+ })
+
+
+</script>
+</head>
+<body>
+
+<input type="button" name="btn" value="show" id="show">
+<input type="button" name="btn" value="hide" id="hide">
+<input type="button" name="btn" value="toggle" id="toggle">
+<h1 class="myc1">This is h1</h1>
+
+
+ 
+</body>
+</html>

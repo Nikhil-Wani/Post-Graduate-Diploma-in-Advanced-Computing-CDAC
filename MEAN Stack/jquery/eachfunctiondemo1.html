@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+    $('div p').each(function(index,element){
+	    this.title="val"+index;
+	    alert($(element).text()+"-----"+index);
+	})
+})
+/*parr=document.getelementsByTagName('p');
+for(var i=0;i<parr.length;i++){
+    alert(parr[i].innerHTML)
+}*/
+
+</script>
+</head>
+<body>
+<p class="myclass"> Hello World!</p>
+<h1>In h1 tag</h1>
+<h2>in H2 tag</h2>
+<p> Hello World!1234</p>
+<div class="myclass">
+ <p class="myclass"> Hello World! in div  child 0</p>
+ <p class="myclass"> Hello World!in div child 1</p>
+ <p class="myclass"> Hello World! in div child 2</p>
+ <p class="myclass"> Hello World! in div child 3</p>
+ <p class="myclass"> Hello World!in div child 4</p>
+ <p class="myclass"> Hello World! in div last child</p>
+</div>
+ 
+</body>
+</html>

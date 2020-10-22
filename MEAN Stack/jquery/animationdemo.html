@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+.myc1{
+   background-color:yellow;
+   color:red;
+   height:150px;
+   width:800px;
+   border:2px solid blue;
+   border-radius:40px;
+
+}
+
+
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+   $('#animate').click(function(){
+	$('h1').animate({"margin-left":"250","height":"100","width":"200"},1000,function(){
+	 console.log(" animate completed");
+	
+	});
+   
+   
+   
+   });
+   
+ })
+
+
+</script>
+</head>
+<body>
+
+<input type="button" name="btn" value="animate" id="animate">
+
+<h1 class="myc1">This is h1</h1>
+
+
+ 
+</body>
+</html>

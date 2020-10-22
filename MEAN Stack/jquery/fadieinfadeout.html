@@ -1,0 +1,63 @@
+<html>
+<head>
+<style>
+.myc1{
+   background-color:yellow;
+   color:red;
+   height:150px;
+   width:800px;
+   border:2px solid blue;
+   border-radius:40px;
+
+}
+
+
+</style>
+<script src="../script/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+   $('#fadein').click(function(){
+	$('h1').fadeIn('fast',function(){
+	 console.log(" fadein completed");
+	
+	});
+   
+   
+   
+   });
+    $('#fadeout').click(function(){
+	$('h1').fadeOut(1000,function(){
+	 console.log(" fadeout completed");
+	
+	});
+   
+   
+   
+   });
+   
+   
+    $('#fadeto').click(function(){
+	$('h1').fadeTo(1000,0.5,function(){
+	 console.log(" fade to completed");
+	
+	});
+   
+   
+   
+   });
+ })
+
+
+</script>
+</head>
+<body>
+
+<input type="button" name="btn" value="fadein" id="fadein">
+<input type="button" name="btn" value="fadeout" id="fadeout">
+<input type="button" name="btn" value="fadeto" id="fadeto">
+<h1 class="myc1">This is h1</h1>
+
+
+ 
+</body>
+</html>
