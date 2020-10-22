@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moonwalk Manor - Your Haven in Space</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i,900,900i" type="text/css" media="all">
+    <link rel="stylesheet" href="style-main.css" type="text/css" media="all">
+
+    <script src="JS/script.js" defer></script>
+    <script src="JS/libs/flexibility.js"></script>
+    <script>
+        /*! grunt-grunticon Stylesheet Loader - v2.1.6 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+        !function(){function e(e,n,t){"use strict";var o=window.document.createElement("link"),r=n||window.document.getElementsByTagName("script")[0],a=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",r.parentNode.insertBefore(o,r),o.onloadcssdefined=function(e){for(var n,t=0;t<a.length;t++)a[t].href&&a[t].href===o.href&&(n=!0);n?e():setTimeout(function(){o.onloadcssdefined(e)})},o.onloadcssdefined(function(){o.media=t||"all"}),o}function n(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}!function(t){var o=function(r,a){"use strict";if(r&&3===r.length){var i=t.navigator,c=t.document,s=t.Image,d=!(!c.createElementNS||!c.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!c.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||t.opera&&-1===i.userAgent.indexOf("Chrome")||-1!==i.userAgent.indexOf("Series40")),l=new s;l.onerror=function(){o.method="png",o.href=r[2],e(r[2])},l.onload=function(){var t=1===l.width&&1===l.height,i=r[t&&d?0:t?1:2];t&&d?o.method="svg":t?o.method="datapng":o.method="png",o.href=i,n(e(i),a)},l.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",c.documentElement.className+=" grunticon"}};o.loadCSS=e,o.onloadCSS=n,t.grunticon=o}(this),function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;d<t.length;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;d<n.length;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;d<r.length;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s}(grunticon,this)}();
+        grunticon(["gfx/icons.data.svg.css", "gfx/icons.data.png.css", "gfx/icons.fallback.css"], grunticon.svgLoadedCallback);
+    </script>
+    <noscript><link href="gfx/icons.fallback.css" rel="stylesheet"></noscript>
+</head>
+
+<body>
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+    <header class="masthead clear">
+        <div class="site-header centered">
+            <div class="site-branding">
+                <h1 class="site-title"><a href="/"><span class="icon-mmlogo" data-grunticon-embed></span>Moonwalk Manor</a></h1>
+            </div><!-- .site-title -->
+            <nav id="multi-level-nav" class="menu multi-level-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li class="has-children">
+                        <a href="#">Your Stay<button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">Expand child menu</span></button></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Experiences</a></li>
+                            <li><a href="#">Dining</a></li>
+                            <li><a href="#">Amenities</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a class="reserve" href="#">Make a Reservation</a></li>
+                </ul>
+            </nav><!-- #multi-level-nav .multi-level-nav -->
+        </div><!-- .centered -->
+
+    </header><!-- .masthead -->
+
+    <div id="showcase" class="promo-area">
+        <div class="front-slider flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="images/mainpromo/welcome01.jpg" />
+                </li>
+                <li>
+                    <img src="images/mainpromo/welcome02.jpg" />
+                </li>
+                <li>
+                    <img src="images/mainpromo/welcome03.jpg" />
+                </li>
+                <li>
+                    <img src="images/mainpromo/welcome04.jpg" />
+                </li>
+            </ul>
+        </div><!-- .flexslider -->
+        <div class="promo-content">
+            <div class="promo-text">
+                <h2 class="promo-title">A Hotel on the Moon?!?</h2>
+                <p class="promo-lede">That is absolutely bonkers! Who came up with this absurd idea? What about all the dust?</p>
+            </div><!-- .promo-text -->
+        </div><!-- .promo-content -->
+    </div><!-- #showcase .promo-area -->
+
+    <main class="main-area">
+
+        <div class="top-pitch centered">
+            <h2 class="main-title">Welcome to Moonwalk Manor</h2>
+            <p class="teaser two-column">
+                Moonwalk Manor is an awesome new hotel on the moon. Yes, on the friggin <strong>moon</strong>. Always wanted to see what the earth looks like from afar? Well, now you can. While taking part in a low-G yoga class or exploring the landing sites of the original Apollo missions. To call a stay at Moonwalk Manor a unique experience would be the understatement of the century. Your stay at Moonwalk Manor will change your perception of reality and make you a whole new person.
+            </p>
+        </div><!-- .pitch centered -->
+        <div class="cta">
+            <a href="#" class="hide">Book Now!</a>
+            <section id="booking-alert" class="booking-info">
+                <div class="centered">
+                    <h3 class="content-title">Sorry about that!</h3>
+                    <p class="teaser two-column">By some weird coincidence, all the rooms at Moonwalk Manor are booked out for the date you planned to take your trip. Unfortunately we are unable to provide you with sufficient lodging for your party at this time. Moonwalk Manor is very busy and your satisfaction is our top priority. When you take your first steps in the moon dust, your life will change. We are always at your service. Your satisfaction matters to us.</p>
+                </div>
+            </section><!-- .booking-info -->
+        </div><!-- .cta -->
+
+        <section class="main-pitch">
+            <div class="three-reasons centered">
+                <figure class="reason">
+                    <a href="">
+                        <img src="images/mainpromo/welcome02.jpg" />
+                    </a>
+                    <figcaption>
+                        <h3 class="content-title">A Room with a View</h3>
+                        <p>Every room at Moonwalk Manor, whether you are staying in a discount suite or going Apartment Class&reg;, has a panoramic view.</p>
+                        <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about the views.</span></a>
+                    </figcaption>
+                </figure><!-- .reason -->
+                <figure class="reason">
+                    <a href="">
+                        <img src="images/mainpromo/welcome03.jpg" />
+                    </a>
+                    <figcaption>
+                        <h3 class="content-title">Luxurious Sleep</h3>
+                        <p>Yes, you're on the moon, but that doesn't mean gravity won't do its work on your body. After a long day of excitement, bunk down in our luxurious beds to recharge for the next day.</p>
+                        <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about our amazing beds.</span></a>
+                    </figcaption>
+                </figure><!-- .reason -->
+                <figure class="reason">
+                    <a href="">
+                        <img src="images/mainpromo/welcome04.jpg" />
+                    </a>
+                    <figcaption>
+                        <h3 class="content-title">First Class Treatment</h3>
+                        <p>Your comfort and safety is our priority. At Moonwalk Manor we pride ourselves on first class treatment from the moment you arrive to the moment you set your foot back on earth. Even during a meteor event.</p>
+                        <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about meteor shelters and our liability waiver.</span></a>
+                    </figcaption>
+                </figure><!-- .reason -->
+            </div><!-- .three-reasons centered -->
+        </section><!-- .main-pitch -->
+
+        <section class="pitch">
+            <div class="centered">
+                <h2 class="main-title">The Moonwalk Experience</h2>
+                <p class="teaser two-column">
+                    You're not merely going to a hotel. You are going to a new planetary body, held in earth's gravitational embrace, that travels on its own orbit around the sun. The experiences you'll have with us are unlike any other.
+                </p>
+            </div><!-- .centered -->
+        </section><!-- .pitch centered -->
+
+        <section class="features centered">
+            <figure class="feature">
+                <a href="#">
+                    <img src="images/experience/apartmentclass.jpg" />
+                </a>
+                <figcaption>
+                    <h3 class="content-title">Apartment Class&reg; Accommodations</h3>
+                    <p>Stay on the moon with the comforts of your own home. Moonwalk Manor Apartment Class&reg; offers a full-scale New York style apartment with all the luxuries you'd expect in your own home and more.</p>
+                    <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about Apartment Class&reg; living.</span></a>
+                </figcaption>
+            </figure><!-- .feature -->
+            <figure class="feature">
+                <a href="#">
+                    <img src="images/experience/fivestardining.jpg" />
+                </a>
+                <figcaption>
+                    <h3 class="content-title">Five-Star Dining</h3>
+                    <p>Before we left earth, we convinced the best chefs in the business to come with us. Is low gravity an ingredient in fine dining? Only one way to find out!</p>
+                    <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about Explosive Decompression Ice Cream.</span></a>
+                </figcaption>
+            </figure><!-- .feature -->
+            <figure class="feature">
+                <a href="#">
+                    <img src="images/experience/gravitygym.jpg" />
+                </a>
+                <figcaption>
+                    <h3 class="content-title">Gravity Gym</h3>
+                    <p>Our Gravity Gym offers exercises you've never even dreamed of. From our Centrifugal Super-G Track to our Zero-G Yoga Studio, Moonwalk Manor has a new experience to offer everyone.</p>
+                    <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about freefall vertigo.</span></a>
+                </figcaption>
+            </figure><!-- .feature -->
+            <figure class="feature">
+                <a href="#">
+                    <img src="images/experience/spa.jpg" />
+                </a>
+                <figcaption>
+                    <h3 class="content-title">Moon Dust Spa</h3>
+                    <p>Regolith is what makes the moon grey. It is also what will rejuvinate  your skin, making it silky smooth to the touch. The unique properties of moon dust makes it an ideal exfoliant and skin conditioner. Visit our spa and find out for yourself.</p>
+                    <a class="content-button" href="#">Learn More<span class="screen-reader-text"> about regolith rash.</span></a>
+                </figcaption>
+            </figure><!-- .feature -->
+
+        </section><!-- .features centered -->
+
+        <div class="cta">
+            <a href="#">Book Now!</a>
+        </div><!-- .cta -->
+
+        <h2 class="main-title">Tales from the Moon</h2>
+        <section class="stories centered">
+            <!-- slider -->
+            <div class="story-slider flexslider">
+                <ul class="slides">
+                    <li>
+                        <figure class="story-wrapper">
+                            <img src="images/testimonials/bluepebble.jpg" alt="">
+                            <figcaption class="story">
+                                <h3 class="story-header">Earth Rise</h3>
+                                <div class="author">Bob MacEnzie</div>
+                                <p>You've heard stories about the first astronauts visiting the moon and looking back at the earth rising on the horizon. Then you see it for yourself and realize just how small and vulnerable we all are.</p>
+                                <a href="#" class="content-button">Get the whole story</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="story-wrapper">
+                            <img src="images/testimonials/earth.jpg" alt="">
+                            <figcaption class="story">
+                                <h3 class="story-header">Earth Seen from Heaven</h3>
+                                <div class="author">Judy Blench</div>
+                                <p>Rising up through the atmosphere, I saw the three-dimensionality of Earth for the first time. I was a flat-earther until that moment, but now I realize the turtles must be in a different dimension.</p>
+                                <a href="#" class="content-button">Get the whole story</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="story-wrapper">
+                            <img src="images/testimonials/footprint.jpg" alt="">
+                            <figcaption class="story">
+                                <h3 class="story-header">Footprints in the Regolith</h3>
+                                <div class="author">Maiken Endersen</div>
+                                <p>One small step for man. A million small footprints from giddy tourists. I wonder if anyone will look at a picture of mine in the future and dream of being the first woman on a new planet.</p>
+                                <a href="#" class="content-button">Get the whole story</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="story-wrapper">
+                            <img src="images/testimonials/zerog.jpg" alt="">
+                            <figcaption class="story">
+                                <h3 class="story-header">Falling through gravity</h3>
+                                <div class="author">Maiken Endersen</div>
+                                <p>I thought I knew yoga and how to control my body. Was I ever wrong. I have learned more about myself in two days in the Zero-G Yoga Studio than I had in 20 years of regular floor-based practice.</p>
+                                <a href="#" class="content-button">Get the whole story</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div><!-- .story-slider -->
+        </section><!-- .stories centered -->
+
+    </main><!-- .main-area -->
+
+    <footer class="footer">
+        <section class="footer-widgets centered">
+            <div class="widget footer-menu">
+                <h4 class="widget-title">Find your way</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Accommodations</a></li>
+                    <li><a href="#">Experiences</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div><!-- .widget -->
+            <div class="widget footer-cta">
+                <h4 class="widget-title">Make a Reservation</h4>
+                <p>What are you waiting for? The moon is ready for your visit.</p>
+                <a href="#">Book Now!</a>
+
+            </div><!-- .widget -->
+            <div class="widget footer-address">
+                <address>
+                    <h4 class="widget-title">Moonwalk Manor</h4>
+                    <p>
+                        1 Moonwalk Avenue<br>
+                        M00N, Tycho<br>
+                        Luna
+                    </p>
+                </address>
+            </div><!-- .widget -->
+        </section><!-- .footer-widgets -->
+        <nav class="social-nav" role="navigation">
+            <ul>
+                <li><a class="icon-linkedin" data-grunticon-embed href="https://linkedin.com"><span class="screen-reader-text">LinkedIn</span></a></li>
+                <li><a class="icon-twitter" data-grunticon-embed href="https://twitter.com"><span class="screen-reader-text">Twitter</span></a></li>
+                <li><a class="icon-facebook" data-grunticon-embed href="https://facebook.com"><span class="screen-reader-text">Facebook</span></a></li>
+                <li><a class="icon-instagram" data-grunticon-embed href="https://instagram.com"><span class="screen-reader-text">Instagram</span></a></li>
+                <li><a class="icon-youtube" data-grunticon-embed href="https://youtube.com"><span class="screen-reader-text">YouTube</span></a></li>
+            </ul>
+        </nav><!-- .social-nav -->
+    </footer><!-- .footer -->
+
+    <script src="JS/libs/jquery-2.1.3.min.js"></script>
+    <script src="JS/libs/jquery.flexslider-min.js"></script>
+    <script src="JS/menu-toggle.js"></script>
+    <script src="JS/flexslider.js"></script>
+
+</body>
+
+</html>
