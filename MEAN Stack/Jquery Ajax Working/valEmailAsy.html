@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src=script/jquery-3.4.0.js>"</script>
+	<script>
+		$(document).ready(function () {
+			$("#btn1").click(function(){
+				var name=$("#name1").val();
+				var email=$("#email1").val();
+				var password=$("#pass1").val();
+				
+				$.ajax({
+				  method: "GET",
+				  url: "email.php",
+				  data: { nm: name, em: email}
+				})
+				  .done(function( msg ) {
+					alert( "Data Saved: " + msg );
+				});
+		});
+		});
+	</script>
+</head>
+<body>
+<form>
+		<table>
+			<tr>
+				<td>
+					Enter name:
+				</td>
+				<td>
+					<input type="text" name="name" id="name1"><span id="sp1"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Enter email:
+				</td>
+				<td>
+					<input type="text" name="email" id="email1"><span id="sp2"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Enter password:
+				</td>
+				<td>
+					<input type="password" name="pass" id="pass1"><span id="sp3"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="btn1" type="button" name="submit" value="Register">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
