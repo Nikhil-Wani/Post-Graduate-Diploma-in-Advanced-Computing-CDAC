@@ -1,0 +1,15 @@
+h1{
+    background-color:yellow;
+    color:red;
+    height:100px;
+    width:300px;
+    border:2px solid blue;
+
+}
+
+input[type=text].ng-invalid{
+    border:2px solid red;
+}
+.ng-valid{
+    border:2px solid green;
+}

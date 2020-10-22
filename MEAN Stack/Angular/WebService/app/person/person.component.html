@@ -1,0 +1,20 @@
+<div>
+<table border="2">
+<tr *ngFor="let p of parr">
+    <td>{{p.pid}}</td>
+    <td>{{p.pname}}</td>
+    <td>{{p.mobile}}</td>
+    <td><a href="#"><span (click)="onUpdate(p,'u')">Update</span></a>
+        /
+        <a href="#"><span (click)="deletePerson(p.pid)">Delete</span></a>
+    </td>
+</tr>
+</table>
+</div>
+<a href="#"><span (click)="onAddClick()">Add Person</span></a>
+<div *ngIf="flagvar">
+    <input type="text" name="pid" [(ngModel)]="p.pid">
+    <input type="text" name="pname" [(ngModel)]="p.pname">
+    <input type="text" name="mobile" [(ngModel)]="p.mobile">
+    <input type="button" name="btn" value="Add" (click)="submitForm()">
+</div>

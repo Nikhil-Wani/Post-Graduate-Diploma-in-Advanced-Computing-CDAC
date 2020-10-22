@@ -1,0 +1,23 @@
+<h1>Hello World!</h1>
+<form #pform="ngForm">
+    <input type="text" #nmtxt="ngModel" name="nm" ngModel required minlength="5"><br>
+    <div *ngIf="nmtxt.errors && (nmtxt.dirty || nmtxt.touched)">
+        <div [hidden]="!nmtxt.errors.required"> 
+            Pls enter valid data
+         </div>
+         <div [hidden]="!nmtxt.errors.minlength"> 
+             Pls enter min length to 5
+          </div>
+    </div>
+    <input type="text" name="mob" ngModel required>
+    <input type="button" name="btn" value="submit" [disabled]="!pform.valid">
+</form>
+
+
+<hr>
+
+<input type="text" name="nm" [(ngModel)]="pmsg"><br>
+Data From Child : {{per.pid}} ------ {{per.pname}}
+<hr>
+
+<childtag [pData]="pmsg" (myevent)="per=$event"></childtag>
