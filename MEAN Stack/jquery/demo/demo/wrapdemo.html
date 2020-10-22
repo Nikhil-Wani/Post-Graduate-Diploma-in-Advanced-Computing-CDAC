@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+.myclass{
+   background-color:yellow;
+   color:blue;
+   border:2px dashed red;
+   border-radius:40px;
+
+
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+jQuery(document).ready(function(){
+
+$('#btn').click(function(){
+     $('span').wrap("<div class='myclass'></div>");
+}); 
+
+})
+</script>
+</head>
+<body>
+<input type="button" name="btn" value="click me" id="btn">
+<p>this is para</p>
+
+<p class="myclass">this is para 0</p>
+<p>this is para 1</p>
+<p class="mclass">this is para 2</p>
+
+
+
+ <p>this is para 0</p>
+<p>this is para 1</p>
+
+<span>This is span 1</span>
+
+<span>This is span 2</span>
+
+
+</body>
+</html>

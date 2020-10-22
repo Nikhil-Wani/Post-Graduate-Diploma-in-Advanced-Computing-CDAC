@@ -1,0 +1,51 @@
+<html>
+<head>
+<style>
+.myclass{
+   height:100px;
+   width:600px;
+   background-color:blue;
+   color:white;
+   border:2px dashed red;
+   border-radius:40px;
+   font-size:20px;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+
+$(document).ready(function(){
+$('#up').click(function(){
+    $('.myclass').slideUp(1000,function(){
+	      $('#myid').text("slideup completed");
+	});
+
+});
+$('#down').click(function(){
+    $('.myclass').slideDown(1000,function(){
+	      $('#myid').text("slidedown completed");
+	});
+
+});
+$('#toggle').click(function(){
+    $('.myclass').slideToggle(1000,function(){
+	      $('#myid').text("Slide toggle completed");
+	});
+
+});
+
+});
+</script>
+</head>
+<body>
+<div id="myid"></div>
+<input type="button" name="btn" value="slideup para" id="up">
+<input type="button" name="btn" value="slidedown para" id="down">
+<input type="button" name="btn" value="slidetoggle para" id="toggle">
+
+<p class="myclass">This is paragraph</p>
+
+
+</body>
+</html>

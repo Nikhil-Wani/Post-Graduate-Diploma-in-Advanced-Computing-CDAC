@@ -1,0 +1,23 @@
+<head>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+<script src="../scripts/jquery-3.4.0.js"></script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#box").animate({height: "300px"});
+  });
+  $("#btn2").click(function(){
+    $("#box").animate({height: "100px"});
+  });
+});
+</script>
+</head>
+<body>
+
+<button id="btn1">Animate height</button>
+<button id="btn2">Reset height</button>
+
+<div id="box" style="background:#98bf21;height:100px;width:100px;margin:6px;"></div>
+
+</body>
+</html>

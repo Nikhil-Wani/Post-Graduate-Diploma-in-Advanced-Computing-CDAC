@@ -1,0 +1,52 @@
+<html>
+<head>
+<style>
+.myclass{
+   height:100px;
+   width:100px;
+   background-color:yellow;
+   color:blue;
+   border:2px dashed red;
+   border-radius:40px;
+
+
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(document).ready(function(){
+ 
+ $('p').mouseover(function(){
+ 
+     console.log("mouse over event");
+ 
+ });
+ //assign click event to p tag
+ $('p').click(function(){
+ 
+      alert("click event");
+ 
+ });
+ 
+ $('#txt').focus(function(){
+ 
+     alert("focus in text box");
+ });
+ $('#txt').blur(function(){
+ 
+     alert("blur event on  text box");
+ });
+ 
+})
+</script>
+</head>
+<body>
+
+<input type="text" name="nm" id="txt">
+<p>this is para</p>
+
+
+
+</body>
+</html>

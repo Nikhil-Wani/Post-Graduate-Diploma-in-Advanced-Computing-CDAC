@@ -1,0 +1,56 @@
+<html>
+<head>
+<style>
+.myclass{
+   
+   background-color:yellow;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+
+$(document).ready(function(){
+/*$('#nm1').bind("focus",function(){
+       
+       $('input[name="nm"]').addClass("myclass");      
+
+});
+$('input[name="nm"]').bind("blur",function(){
+       $('input[name="nm"]').removeClass("myclass");      
+
+});*/
+
+$('#mydiv').delegate("#nm1","focus",function(){
+      $('input[name="nm"]').addClass("myclass");  
+});
+
+$('#mydiv').delegate("#nm1","blur",function(){
+      $('input[name="nm"]').removeClass("myclass");  
+});
+
+
+$("#btn2").click(function(){
+	      var cp=$('input[name="nm"]').clone();
+		  $("#mydiv").append(cp);
+	
+	});
+
+
+
+
+});
+</script>
+</head>
+<body>
+
+<input type="button" name="btn" value="Clone the button" id="btn2">
+<hr>
+<div id="mydiv">
+<input type="text" name="nm" id="nm1">
+<input type="text" name="nm12">
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+.myclass{
+   height:100px;
+   width:100px;
+   background-color:yellow;
+   color:blue;
+   border:2px dashed red;
+   border-radius:40px;
+
+
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(document).ready(function(){
+ $("#btn").click(function(){
+     $('p').addClass("myclass")
+ 
+ });
+ $("#btn1").click(function(){
+     $('p').removeClass("myclass")
+ 
+ });
+$("#btn2").click(function(){
+     $('p').toggleClass("myclass myc")
+ 
+ });
+})
+</script>
+</head>
+<body>
+
+<input type="button" name="btn" value="toggle class" id="btn2">
+<input type="button" name="btn" value="add class" id="btn">
+<input type="button" name="btn" value="remove class" id="btn1">
+<p>this is para</p>
+
+
+
+</body>
+</html>

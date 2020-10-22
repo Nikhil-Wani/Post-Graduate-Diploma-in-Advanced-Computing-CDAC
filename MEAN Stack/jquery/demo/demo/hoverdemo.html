@@ -1,0 +1,34 @@
+<html>
+<head>
+<style>
+.myclass{
+   height:100px;
+   width:100px;
+   background-color:yellow;
+   boder:2px dashed red;
+   border-radius:40px;
+   font-size:20px;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+
+$(document).ready(function(){
+
+$('p').hover(function(){
+   $('p').toggleClass('myclass');
+
+})
+
+
+});
+</script>
+</head>
+<body>
+
+<p>This is paragraph</p>
+
+
+</body>
+</html>

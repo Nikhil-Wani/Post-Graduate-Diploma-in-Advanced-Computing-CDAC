@@ -1,0 +1,51 @@
+<html>
+<head>
+<style>
+.myclass{
+   height:100px;
+   width:600px;
+   background-color:blue;
+   color:white;
+   border:2px dashed red;
+   border-radius:40px;
+   font-size:20px;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+
+$(document).ready(function(){
+$('#in').click(function(){
+    $('.myclass').fadeIn(1000,function(){
+	      $('#myid').text("fadein completed");
+	});
+
+});
+$('#out').click(function(){
+    $('.myclass').fadeOut(1000,function(){
+	      $('#myid').text("fadeout completed");
+	});
+
+});
+$('#to').click(function(){
+    $('.myclass').fadeTo(1000,0.3,function(){
+	      $('#myid').text("fadeTo completed");
+	});
+
+});
+
+});
+</script>
+</head>
+<body>
+<div id="myid"></div>
+<input type="button" name="btn" value="fadein para" id="in">
+<input type="button" name="btn" value="fadeout para" id="out">
+<input type="button" name="btn" value="fadeto para" id="to">
+
+<p class="myclass">This is paragraph</p>
+
+
+</body>
+</html>
