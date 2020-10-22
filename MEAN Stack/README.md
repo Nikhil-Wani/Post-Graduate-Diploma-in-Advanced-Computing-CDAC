@@ -127,24 +127,3 @@ Following are the advantages of AngularJS over other JavaScript frameworks:
 4. Model View Controller: In Angular JS, it is very easy to develop application in a clean MVC way. You just have to split your application code into MVC components i.e. Model, View and the Controller.
 5. Directives, filters, modules, routes etc.
 
-# Reactjs
-
-<b>Why learn ReactJS?</b>
-
-Today, many JavaScript frameworks are available in the market(like angular, node), but still, React came into the market and gained popularity amongst them. The previous frameworks follow the traditional data flow structure, which uses the DOM (Document Object Model). DOM is an object which is created by the browser each time a web page is loaded. It dynamically adds or removes the data at the back end and when any modifications were done, then each time a new DOM is created for the same page. This repeated creation of DOM makes unnecessary memory wastage and reduces the performance of the application.
-
-Therefore, a new technology ReactJS framework invented which remove this drawback. ReactJS allows you to divide your entire application into various components. ReactJS still used the same traditional data flow, but it is not directly operating on the browser's Document Object Model (DOM) immediately; instead, it operates on a virtual DOM. It means rather than manipulating the document in a browser after changes to our data, it resolves changes on a DOM built and run entirely in memory. After the virtual DOM has been updated, React determines what changes made to the actual browser's DOM. The React Virtual DOM exists entirely in memory and is a representation of the web browser's DOM. Due to this, when we write a React component, we did not write directly to the DOM; instead, we are writing virtual components that react will turn into the DOM.
-
-# Vuejs
-
-Vue.js is an open-source progressive JavaScript framework used to develop interactive web user interfaces and single-page applications. Vue.js is mainly focused on the view part of the application that is also called front end development. Vue.js is going popular day by day because it is very easy to integrate with other projects and libraries. It is very simple to install and use. Even beginners can understand it easily and start building their own user interfaces.
-
-
-<b>What is Vue.js?</b>
-Vue.js is an open-source progressive JavaScript framework used to develop interactive web user interfaces and single-page applications (SPAs). Vue.js is commonly referred to as Vue and pronounced as "view.js" or "view."
-
-<b>What is a Single Page Application (SPA)?</b>
-
-A single page application or SPA is a web application or a website that provides users a very fluid, reactive, and fast experience similar to a desktop application. A single page application contains a menu, buttons, and blocks on a single page. When a user clicks on any of them, it dynamically rewrites the current page rather than loading entire new pages from a server. That's the reason behind its reactive fast speed.
-
-Vue is basically developed for frontend development, so it has to deal with a lot of HTML, JavaScript, and CSS files. Vue.js facilitates users to extend HTML with HTML attributes called directives. Vue.js provides built-in directives and a lot of user-defined directives to enhance functionality to HTML applications.
