@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+      <pid>1111</pid>
+      <pname>Sports shoes</pname>
+      <pqty>234</pqty>
+      <price>3456</price>
+      <sizes>
+           <size>6</size>
+           <size>7</size>
+           <size>8</size>
+      </sizes>
+      <description>
+          <color>red</color>
+          <gender>male></gender>
+      </description>
+  </product>
+  <product>
+      <pid>1111</pid>
+      <pname>Sports shoes</pname>
+      <pqty>234</pqty>
+      <price>3456</price>
+      <sizes>
+           <size>6</size>
+           <size>7</size>
+           <size>8</size>
+      </sizes>
+      <description>
+          <color>red</color>
+          <gender>male></gender>
+      </description>
+   </product>
+   <product>
+      <pid>2222</pid>
+      <pname>walking shoes</pname>
+      <pqty>200</pqty>
+      <price>5678</price>
+      <sizes>
+           <size>8</size>
+           <size>9</size>
+           <size>10</size>
+      </sizes>
+      <description>
+          <color>black</color>
+          <gender>male></gender>
+      </description>
+   </product>
+</products>
