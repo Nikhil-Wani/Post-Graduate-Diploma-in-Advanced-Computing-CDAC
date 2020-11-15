@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Library Management System</title>
+        <script>
+            function checkMobileNumber() {
+                var mobileNumber = document.getElementById("usermobile").value;
+                if (mobileNumber.length != 10) {
+                    alert("Mobile Number is invalid. Must have 10 numbers");
+                    return false;
+                }
+                return true;
+            }
+
+            function checkUserName() {
+                var username = document.getElementById("username").value;
+                if (username == "") {
+                    alert("Please enter your name");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+            function checkUserEmail() {
+                var useremail = document.getElementById("useremail").value;
+                if (useremail == "") {
+                    alert("Please enter your Email");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+            function checkPassword() {
+                var userpwd = document.getElementById("userpassword").value;
+                if (userpwd == "") {
+                    alert("Please enter your password");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+
+            }
+
+            function ValidationALLFields() {
+                if (checkUserName() && checkUserEmail() && checkPassword() && checkMobileNumber()) {
+                    return true;
+                }
+                return false;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div style="float:right">
+            <a href="../Home.html">Home</a> |
+            <a href="Contact.html">Contact us</a> |
+            <a href="Login.html">Login</a> |
+        </div>
+        <br>
+        <hr>
+        <div>
+            <center>
+                <form action="../UserRegistration" method="post">
+                    User Name: <input type="text" id="username" name="username" maxlength="30"/><br>
+                    Email: <input type="email" id="useremail" name="useremail"/><br>
+                    Password: <input type="password" id="userpassword" name="userpassword"/><br>
+                    Confirm Password: <input type="password" id="confirmpassword" name="confirmpassword"/><br>
+                    Mobile: <input type="text" id="usermobile" name="usermobile" maxlength="10"/><br>
+                    Please select your interested Categories?
+                    <input type="checkbox" name="categoryType" value="ECE">ECE
+                    <input type="checkbox" name="categoryType" value="EEE">EEE
+                    <input type="checkbox" name="categoryType" value="CSE">CSE
+                    <input type="checkbox" name="categoryType" value="MEC">MEC
+                    <br><br>
+                    
+                    <input type="submit" value="Register" onclick="return ValidationALLFields()"/><br><br>
+                    <a href="Login.html">Already Registered?</a>
+                </form>
+
+            </center>
+        </div>
+        <hr>
+        <div>
+            <center>
+                Copyrights @ DAC 2020
+            </center>
+        </div>
+    </body>
+</html>
