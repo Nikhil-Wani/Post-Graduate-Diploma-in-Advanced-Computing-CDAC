@@ -1,0 +1,62 @@
+<html>
+<head>
+ <title>Library Management System</title>
+ <script>
+	function checkUserEmail(){
+		var useremail = document.getElementById("useremail").value;
+		if(useremail == ""){
+			alert("Please enter your Email");
+			return false;
+		} 
+		else {
+			return true;
+		}
+	}
+	function checkPassword(){
+		var userpwd = document.getElementById("userpassword").value;
+		if(userpwd == ""){
+			alert("Please enter your password");
+			return false;
+		} 
+		else {
+			return true;
+		}
+	}	
+	function ValidateAllFields(){
+		if(checkUserEmail() && checkPassword()){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+ </script>
+</head>
+<body>
+<div style="float:right">
+ <a href="../Home.html">Home</a> |
+ <a href="Contact.html">Contact us</a> |
+ <a href="Register.html">Register</a> |
+</div>
+<br>
+<hr>
+<div>
+<center>
+    <form action="../UserAuthentication" method="post">		
+		EmailEmail: <input type="email" id="useremail" name="useremail"/>
+		<br>
+		Password: <input type="password" id="userpassword" name="userpassword"/>
+		<br>			
+		<input type="submit" value="Login" onclick="return ValidateAllFields()"/>
+	</form>
+ 
+ </center>
+ </div>
+ <hr>
+ <div>
+ <center>
+	Copyrights @ DAC 2020
+</center>
+ </div>
+</body>
+</html>
