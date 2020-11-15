@@ -1,0 +1,3 @@
+create a registeration page
+
+write validations for that form
