@@ -1,0 +1,11 @@
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\bin\Debug\netcoreapp2.0\LoopCounting.deps.json
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\bin\Debug\netcoreapp2.0\LoopCounting.runtimeconfig.json
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\bin\Debug\netcoreapp2.0\LoopCounting.runtimeconfig.dev.json
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\bin\Debug\netcoreapp2.0\LoopCounting.dll
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\bin\Debug\netcoreapp2.0\LoopCounting.pdb
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\obj\Debug\netcoreapp2.0\LoopCounting.csprojResolveAssemblyReference.cache
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\obj\Debug\netcoreapp2.0\LoopCounting.csproj.CoreCompileInputs.cache
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\obj\Debug\netcoreapp2.0\LoopCounting.AssemblyInfoInputs.cache
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\obj\Debug\netcoreapp2.0\LoopCounting.AssemblyInfo.cs
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\obj\Debug\netcoreapp2.0\LoopCounting.dll
+C:\Users\Alexander Zanfir\source\repos\LoopCounting\LoopCounting\obj\Debug\netcoreapp2.0\LoopCounting.pdb

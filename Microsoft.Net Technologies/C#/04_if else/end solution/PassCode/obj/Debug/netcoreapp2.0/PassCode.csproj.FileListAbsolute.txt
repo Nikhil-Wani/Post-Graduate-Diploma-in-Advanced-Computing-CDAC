@@ -1,0 +1,11 @@
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\bin\Debug\netcoreapp2.0\PassCode.deps.json
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\bin\Debug\netcoreapp2.0\PassCode.runtimeconfig.json
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\bin\Debug\netcoreapp2.0\PassCode.runtimeconfig.dev.json
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\bin\Debug\netcoreapp2.0\PassCode.dll
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\bin\Debug\netcoreapp2.0\PassCode.pdb
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\obj\Debug\netcoreapp2.0\PassCode.csprojResolveAssemblyReference.cache
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\obj\Debug\netcoreapp2.0\PassCode.csproj.CoreCompileInputs.cache
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\obj\Debug\netcoreapp2.0\PassCode.AssemblyInfoInputs.cache
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\obj\Debug\netcoreapp2.0\PassCode.AssemblyInfo.cs
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\obj\Debug\netcoreapp2.0\PassCode.dll
+C:\Users\Alexander Zanfir\source\repos\PassCode\PassCode\obj\Debug\netcoreapp2.0\PassCode.pdb
