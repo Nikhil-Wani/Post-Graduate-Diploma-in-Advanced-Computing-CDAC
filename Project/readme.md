@@ -6,4 +6,4 @@ Technology Used : Java, Spring Boot, Spring Security, Spring Data JPA, MySQL and
 Backend : https://github.com/Nikhil-Wani/Reddit-Clone-Spring-Backend    Java, Spring Boot, Spring Security, Spring Data JPA, MySQL
 
 
-Frontend : https://github.com/Nikhil-Wani/Reddit-Clone-Angular-Frontend  Angular 9 and bootdtrap
+Frontend : https://github.com/Nikhil-Wani/Reddit-Clone-Angular-Frontend  Angular 9 and bootstrap
