@@ -91,7 +91,15 @@ C# .NET 4.5: Need of C#,Operators,Namespaces & Assemblies,Arrays,Preprocessors,D
 ASP .NET 4.5: Building .NET components,ADO.NET 4.5,Querying with LINQ,Custom Control,Master Pages, Themes and skins,Introduction to Web Services,MS.NET MVC Framework,Enterprise Services,Personalization and Localization,Deployment.
 
 ### Effective Communication  (50 Hours)  
+
+English 
+
 ### Aptitude & General English (50 Hours) 
+
+Quantity
+logical
+Verbal
+
 ### Project   (120 Hours)
 Community Hub is a social platform where users submit and comment on topics or ideas that other users 'upvote' or 'downvote' based on if they like it. Technology Used : Java, Spring Boot, Spring Security, Spring Data JPA, MySQL and Angular 9.
 
