@@ -97,7 +97,9 @@ English
 ### Aptitude & General English (50 Hours) 
 
 Quantity
+
 logical
+
 Verbal
 
 ### Project   (120 Hours)
